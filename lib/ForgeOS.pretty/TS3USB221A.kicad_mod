@@ -1,0 +1,208 @@
+(footprint "TS3USB221A"
+	(version 20260206)
+	(generator "kicad-footprint-generator")
+	(layer "F.Cu")
+	(descr "TI RSE0010A UQFN-10, 2.0x1.5mm, P0.4 (TS3USB221A)")
+	(tags "Texas UQFN NoLead")
+	(property "Reference" "REF**"
+		(at 0 -2.2 0)
+		(layer "F.SilkS")
+		(uuid "5aaa3831-6bec-5bfb-a3f0-c040185f4921")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "TS3USB221A"
+		(at 0 2.2 0)
+		(layer "F.Fab")
+		(uuid "226c64da-85de-5c25-8ba3-a32bc4ce36fc")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_line
+		(start -1.15 -0.9)
+		(end 1.15 -0.9)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "0473cb61-ea79-5fc6-b1fb-72d7163a2ebe")
+	)
+	(fp_line
+		(start 1.15 -0.9)
+		(end 1.15 0.9)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "a6a466f9-0c78-589a-8da7-772eb244c419")
+	)
+	(fp_line
+		(start 1.15 0.9)
+		(end -1.15 0.9)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "6f2ec6b6-11b6-5d70-8428-3b46b8c8ad43")
+	)
+	(fp_line
+		(start -1.15 0.9)
+		(end -1.15 -0.9)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "6c84f390-36a4-5968-ab65-53f8d4594472")
+	)
+	(fp_poly
+		(pts
+			(xy -1.0 -0.75)
+			(xy 1.0 -0.75)
+			(xy 1.0 0.75)
+			(xy -1.0 0.75)
+		)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.Fab")
+		(uuid "8c4cd5c8-2f66-5e37-a274-552ae4bc4fb7")
+	)
+	(fp_line
+		(start -1.3 -1.05)
+		(end 1.3 -1.05)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "295cfcd3-7d9b-5a85-9de6-a0d955a0704a")
+	)
+	(fp_line
+		(start 1.3 -1.05)
+		(end 1.3 1.05)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "867cbaf0-30d4-5d08-9460-76be8b952299")
+	)
+	(fp_line
+		(start 1.3 1.05)
+		(end -1.3 1.05)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "c61585f6-eb92-52bb-8d79-172675af1dc8")
+	)
+	(fp_line
+		(start -1.3 1.05)
+		(end -1.3 -1.05)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "b4cd412d-5b54-56cf-9cf7-e3da77d433fd")
+	)
+	(pad "1" smd roundrect
+		(at -1.2 -0.2)
+		(size 0.25 0.45)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "46cf9ec4-e8a5-5d9c-afe4-adb1e27001d3")
+		(roundrect_rratio 0.25)
+	)
+	(pad "2" smd roundrect
+		(at -1.2 0.2)
+		(size 0.25 0.45)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "736b06bc-0c7e-5386-9853-f3a370bfa1d7")
+		(roundrect_rratio 0.25)
+	)
+	(pad "3" smd roundrect
+		(at -0.4 0.95)
+		(size 0.45 0.25)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "cca76481-f7d1-5613-833a-f04970662948")
+		(roundrect_rratio 0.25)
+	)
+	(pad "4" smd roundrect
+		(at 0 0.95)
+		(size 0.45 0.25)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "b8d05a9f-e469-5cf7-bf93-2fa1316b446f")
+		(roundrect_rratio 0.25)
+	)
+	(pad "5" smd roundrect
+		(at 0.4 0.95)
+		(size 0.45 0.25)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "425c1202-231b-5f12-8b73-819c0c9cdd27")
+		(roundrect_rratio 0.25)
+	)
+	(pad "6" smd roundrect
+		(at 1.2 0.2)
+		(size 0.25 0.45)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "01ee671a-6e64-541d-9923-7fa9c497b170")
+		(roundrect_rratio 0.25)
+	)
+	(pad "7" smd roundrect
+		(at 1.2 -0.2)
+		(size 0.25 0.45)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "52a9462d-5263-5450-9088-29ead11fa045")
+		(roundrect_rratio 0.25)
+	)
+	(pad "8" smd roundrect
+		(at 0.4 -0.95)
+		(size 0.45 0.25)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "d31f4460-5b99-5352-a7cb-c422c8f7c964")
+		(roundrect_rratio 0.25)
+	)
+	(pad "9" smd roundrect
+		(at 0 -0.95)
+		(size 0.45 0.25)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "f5958710-0f73-5908-92d6-ba93452cbbf7")
+		(roundrect_rratio 0.25)
+	)
+	(pad "10" smd roundrect
+		(at -0.4 -0.95)
+		(size 0.45 0.25)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "2eddce20-7277-5861-9082-6448d2b9b4a0")
+		(roundrect_rratio 0.25)
+	)
+	(embedded_fonts no)
+	(model "${KICAD10_3DMODEL_DIR}/Package_DFN_QFN.3dshapes/Texas_RSW0010A_UQFN-10_1.4x1.8mm_P0.4mm.step"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+)

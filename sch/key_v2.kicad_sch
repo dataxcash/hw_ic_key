@@ -1,0 +1,107 @@
+(kicad_sch
+	(version 20260306)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "86386b49-ab84-d1f6-8928-bbe0fb6c90f9")
+	(paper "A3")
+	(title_block
+		(title "KEY v2 — K1 Minimal System (USB-A Dongle)")
+		(date "2026-08-09")
+		(rev "B1")
+		(company "ForgeOS")
+		(comment 1 "Designed by: ForgeOS HW")
+		(comment 2 "Approved by: PM")
+	)
+	(lib_symbols)
+	(sheet
+		(at 110 25)
+		(size 60 60)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.254)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "6c4913f5-51da-f06a-bdae-7699c2e8abfc")
+		(property "Sheetname" "Main (B1 + eMMC + SE050 + Debug)"
+			(at 113 89 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sheetfile" "key_v2_main.kicad_sch"
+			(at 113 21 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(instances
+			(project "key_v2"
+				(path "/6c4913f5-51da-f06a-bdae-7699c2e8abfc"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 20 25)
+		(size 60 60)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.254)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "98248b9c-8b4e-aa0f-a494-68cf017f3a5d")
+		(property "Sheetname" "Power (P1 PMIC + B1 power tree)"
+			(at 23 89 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sheetfile" "key_v2_power.kicad_sch"
+			(at 23 21 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(instances
+			(project "key_v2"
+				(path "/98248b9c-8b4e-aa0f-a494-68cf017f3a5d"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+)
