@@ -1,0 +1,256 @@
+{
+ "spec_version": "WO313-connector-pose",
+ "date": "2026-11-08",
+ "method": "render-visible-contour measurement; pad envelope from footprint local pad geometry; no bbox-center formula used for solving",
+ "board_source": "out/r5_u0_63p4mm_release.kicad_pcb",
+ "board_source_sha256": "0d3a08dca5c17d6d8db34b523969c183148c1529c44c8c61bde2182d9201c4a6",
+ "render_board": "key_v2/fab/release_r5_u0/render3d/r5_u0_63p4mm_3d_render.kicad_pcb",
+ "render_board_sha256": "f971afbd520df8c3e4ebd0c191a37f531ff65e398e0f63fa91222f652c86e2c2",
+ "connectors": [
+  {
+   "ref": "J1",
+   "part": "USB-C receptacle (sink mount)",
+   "side": "F.Cu",
+   "footprint_orient_deg": 0.0,
+   "model_transform": {
+    "offset": [
+     -0.24,
+     0.4,
+     0.0
+    ],
+    "rotate": [
+     0.0,
+     0.0,
+     180.0
+    ]
+   },
+   "pad_envelope_local_mm": [
+    -4.89,
+    -5.37,
+    4.89,
+    3.54
+   ],
+   "pad_envelope_board_mm": [
+    11.11,
+    0.83,
+    20.89,
+    9.74
+   ],
+   "model_visible_bbox_board_mm": [
+    11.152,
+    0.653,
+    20.766,
+    11.516
+   ],
+   "dCenter_mm": [
+    -0.041,
+    0.8
+   ],
+   "front_edge_y_mm": 0.653,
+   "front_edge_vs_pad_front_mm": -0.177,
+   "pads_inside_model_outline": true,
+   "opening_axis_world": [
+    0,
+    -1,
+    0
+   ],
+   "opening_face_center_world_mm": [
+    15.959,
+    0.653
+   ],
+   "z": {
+    "body_seat_mm": 0.0,
+    "shield_legs_z_min_mm": -1.703,
+    "note": "through-board shield legs intentionally below board; body seat is flush"
+   },
+   "criteria": {
+    "rounded_lip_at_board_edge": true,
+    "pads_inside_outline": true,
+    "body_seat_z_zero": true
+   },
+   "pin1": {
+    "pad": "A1",
+    "pad_local_mm": [
+     -2.75,
+     -5.02
+    ],
+    "pad_world_mm": [
+     13.25,
+     1.18
+    ],
+    "note": "USB-C reversible; official footprint/model reference; zero X shift preserved"
+   },
+   "evidence": "render3d/j1_closeup.png",
+   "verdict": "PASS"
+  },
+  {
+   "ref": "J2",
+   "part": "M.2 (NGFF) M-Key socket, 67 pin",
+   "side": "B.Cu",
+   "footprint_orient_deg": 180.0,
+   "model_transform": {
+    "offset": [
+     0.0,
+     1.644,
+     1.724
+    ],
+    "rotate": [
+     90.0,
+     -180.0,
+     -90.0
+    ]
+   },
+   "pad_envelope_local_mm": [
+    -10.95,
+    -3.05,
+    10.95,
+    6.05
+   ],
+   "pad_envelope_board_mm": [
+    7.3,
+    47.35,
+    29.2,
+    56.45
+   ],
+   "model_visible_bbox_board_mm": [
+    7.163,
+    47.72,
+    29.285,
+    56.055
+   ],
+   "dCenter_mm": [
+    -0.026,
+    -0.013
+   ],
+   "opening_axis_world": [
+    0,
+    1,
+    0
+   ],
+   "opening_face_y_mm": 56.055,
+   "board_end_y_mm": 63.4,
+   "opening_face_to_board_end_mm": 7.345,
+   "board_overhang": false,
+   "z": {
+    "model_z_min_mm": 0.0,
+    "note": "B-side model bottom at board bottom"
+   },
+   "pin1": {
+    "pad": "1",
+    "pad_local_mm": [
+     -9.25,
+     5.275
+    ],
+    "pad_world_mm": [
+     27.5,
+     48.125
+    ],
+    "note": "model pin1 triangle at body corner on same side as pad 1"
+   },
+   "measurement_rounds": [
+    {
+     "round": 1,
+     "offset": [
+      -2.9155,
+      1.334,
+      1.724
+     ],
+     "dCenter_mm": [
+      2.899,
+      0.312
+     ],
+     "note": "old transform; x off ~2.9 mm"
+    },
+    {
+     "round": 2,
+     "offset": [
+      0.0,
+      1.644,
+      1.724
+     ],
+     "dCenter_mm": [
+      -0.026,
+      -0.013
+     ],
+     "note": "PASS <=0.2 mm"
+    }
+   ],
+   "evidence": "render3d/j2_closeup.png",
+   "verdict": "PASS"
+  }
+ ],
+ "other_models": [
+  {
+   "ref": "J3",
+   "part": "UART 1x03 pin header",
+   "side": "F.Cu",
+   "footprint_orient_deg": 0.0,
+   "model_transform": {
+    "offset": [
+     0.0,
+     1.27,
+     0.0
+    ],
+    "rotate": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "model_visible_bbox_board_mm": [
+    27.979,
+    27.926,
+    30.119,
+    32.061
+   ],
+   "pad_envelope_board_mm": [
+    28.5,
+    28.25,
+    29.5,
+    31.75
+   ],
+   "dCenter_mm": [
+    0.049,
+    -0.007
+   ],
+   "verdict": "PASS",
+   "note": "body-up; pin1 top; unchanged offset not affected by Y inversion"
+  },
+  {
+   "ref": "D12",
+   "part": "LED LiteOn LTST-S326",
+   "side": "F.Cu",
+   "footprint_orient_deg": 0.0,
+   "model_transform": {
+    "offset": [
+     -0.175,
+     0.0,
+     0.0
+    ],
+    "rotate": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "model_visible_bbox_board_mm": [
+    7.167,
+    0.751,
+    9.308,
+    4.33
+   ],
+   "pad_envelope_board_mm": [
+    7.1,
+    0.75,
+    8.95,
+    4.25
+   ],
+   "dCenter_mm": [
+    0.213,
+    0.04
+   ],
+   "verdict": "ACCEPTED",
+   "note": "offset y=0 so Y inversion not applicable; x delta from LED lens asymmetry"
+  }
+ ]
+}
