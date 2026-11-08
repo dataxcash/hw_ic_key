@@ -2203,8 +2203,8 @@ nets:
   - C6/P1
   VDD_0V9:
   - L1/P2
-  - U8/CORE_0V9
-  - U8/CORE_0V9_FB
+  - U12/CORE_0V9
+  - U12/CORE_0V9_FB
   - C12/P1
   - C13/P1
   - C14/P1
@@ -2214,75 +2214,75 @@ nets:
   - C7/P1
   VDD_1V8:
   - L2/P2
-  - U8/AVDD1_1V8
-  - U8/AVDD2_1V8
-  - U8/VCC18_GPIO
-  - U8/AVDD18_DDR
-  - U8/LP4X_VDD18
-  - U8/AVDD18_EFUSE
-  - U3/VCCQ
-  - U3/VCCQ_2
-  - U3/VCCQ_3
-  - U3/VCCQ_4
-  - U3/VCCQ_5
+  - U12/AVDD1_1V8
+  - U12/AVDD2_1V8
+  - U12/VCC18_GPIO
+  - U12/AVDD18_DDR
+  - U12/LP4X_VDD18
+  - U12/AVDD18_EFUSE
+  - U5/VCCQ
+  - U5/VCCQ_2
+  - U5/VCCQ_3
+  - U5/VCCQ_4
+  - U5/VCCQ_5
   - R3/P2
   - R4/P2
   - R5/P2
   - R6/P2
-  - R8/P2
   - R9/P2
+  - R12/P2
   - C15/P1
   - C16/P1
-  - U12/VCCA
-  - U13/VCCA
+  - U11/VCCA
+  - U9/VCCA
   LX_BUCK4:
   - U1/BUCK4_LX
   - L3/P1
   - C8/P1
   VDD_3V3:
   - L3/P2
-  - U8/AVDD33_USB
-  - U8/AVDD33_HDMI
-  - U8/AVDD3V3_AUD
-  - U2/nRESET
-  - U3/VCC
-  - U3/VCC_2
-  - U3/VCC_3
-  - U3/VCC_4
+  - U12/AVDD33_USB
+  - U12/AVDD33_HDMI
+  - U12/AVDD3V3_AUD
+  - U4/nRESET
+  - U5/VCC
+  - U5/VCC_2
+  - U5/VCC_3
+  - U5/VCC_4
   - C17/P1
   - C18/P1
-  - R12/P2
-  - U9/VDD
-  - U9/VDD_2
-  - U9/VDD_3
-  - U9/VDD_4
-  - U9/VDD_5
-  - U9/VDD_6
-  - U4/VDD
-  - U4/VDD_2
-  - U7/VCC
+  - R19/P2
+  - U14/VDD
+  - U14/VDD_2
+  - U14/VDD_3
+  - U14/VDD_4
+  - U14/VDD_5
+  - U14/VDD_6
+  - U6/VDD
+  - U6/VDD_2
+  - U13/VCC
   - Y2/VCC
   - Y2/EN
-  - U12/VCCB
-  - U12/DIR
-  - U13/VCCB
-  - U13/DIR
-  - U14/VDD
-  - U14/EN
-  - U10/VDD
-  - U10/VDD_2
-  - U10/VDD_3
-  - U10/VDD_4
-  - U10/VDD_5
-  - U10/VDD_6
-  - R46/P2
+  - U11/VCCB
+  - U11/DIR
+  - U9/VCCB
+  - U9/DIR
+  - U3/VDD
+  - U3/EN
+  - U8/VDD
+  - U8/VDD_2
+  - U8/VDD_3
+  - U8/VDD_4
+  - U8/VDD_5
+  - U8/VDD_6
+  - R11/P2
   LX_BUCK5:
   - U1/BUCK5_LX
   - L4/P1
   - C9/P1
   AVDD11_DDR:
   - L4/P2
-  - U8/AVDD11_DDR
+  - U12/AVDD11_DDR
   - C19/P1
   - C20/P1
   LX_BUCK6:
@@ -2291,165 +2291,165 @@ nets:
   - C10/P1
   AVDD06_DDR:
   - L5/P2
-  - U8/AVDD06_DDR
+  - U12/AVDD06_DDR
   - C21/P1
   - C22/P1
   I2C8_SCL:
-  - U8/PWR_SCL
+  - U12/PWR_SCL
   - U1/SCL
   - R5/P1
   I2C8_SDA:
-  - U8/PWR_SDA
+  - U12/PWR_SDA
   - U1/SDA
   - R6/P1
   I2C2_SCL:
-  - U8/AP_I2C2_SCL
-  - U2/SCL
-  - R8/P1
+  - U12/AP_I2C2_SCL
   - U4/SCL
-  - U7/D_P
-  I2C2_SDA:
-  - U8/AP_I2C2_SDA
-  - U2/SDA
   - R9/P1
+  - U6/SCL
+  - U13/D_P
+  I2C2_SDA:
+  - U12/AP_I2C2_SDA
   - U4/SDA
-  - U7/D_N
+  - R12/P1
+  - U6/SDA
+  - U13/D_N
   PMIC_INT:
   - U1/nINT
-  - U8/PMIC_INT_N
+  - U12/PMIC_INT_N
   - R3/P1
   PMIC_SLEEP:
   - U1/SLEEP
-  - U8/SLEEP_OUT
+  - U12/SLEEP_OUT
   RESET:
-  - U8/RESET_IN_N
+  - U12/RESET_IN_N
   - U1/nRESET
   - R4/P1
   XTAL_24M_XI:
   - Y1/XIN
   - C23/P1
-  - U8/XI_PAD
+  - U12/XI_PAD
   - R7/P2
   XTAL_24M_XO:
   - Y1/XOUT
   - C25/P1
-  - U8/XO_PAD
+  - U12/XO_PAD
   - R7/P1
   EMMC_CLK:
-  - U8/EMMC_CLK
-  - U3/CLK
+  - U12/EMMC_CLK
+  - U5/CLK
   EMMC_CMD:
-  - U8/EMMC_CMD
-  - U3/CMD
+  - U12/EMMC_CMD
+  - U5/CMD
   EMMC_DAT0:
-  - U8/EMMC_D0
-  - U3/DAT0
+  - U12/EMMC_D0
+  - U5/DAT0
   EMMC_DAT1:
-  - U8/EMMC_D1
-  - U3/DAT1
+  - U12/EMMC_D1
+  - U5/DAT1
   EMMC_DAT2:
-  - U8/EMMC_D2
-  - U3/DAT2
+  - U12/EMMC_D2
+  - U5/DAT2
   EMMC_DAT3:
-  - U8/EMMC_D3
-  - U3/DAT3
+  - U12/EMMC_D3
+  - U5/DAT3
   EMMC_DAT4:
-  - U8/EMMC_D4
-  - U3/DAT4
+  - U12/EMMC_D4
+  - U5/DAT4
   EMMC_DAT5:
-  - U8/EMMC_D5
-  - U3/DAT5
+  - U12/EMMC_D5
+  - U5/DAT5
   EMMC_DAT6:
-  - U8/EMMC_D6
-  - U3/DAT6
+  - U12/EMMC_D6
+  - U5/DAT6
   EMMC_DAT7:
-  - U8/EMMC_D7
-  - U3/DAT7
+  - U12/EMMC_D7
+  - U5/DAT7
   EMMC_DS:
-  - U8/EMMC_DS
-  - U3/DS
+  - U12/EMMC_DS
+  - U5/DS
   EMMC_RST:
-  - U3/RSTn
-  - R46/P1
+  - U5/RSTn
+  - R11/P1
   EMMC_VDDI:
-  - U3/VDDi
+  - U5/VDDi
   - C24/P1
   USB2_DP:
-  - U8/USB0_DP
+  - U12/USB0_DP
   - J1/D_P
   - J1/D_P_2
-  - D7/A1
+  - D11/A1
   USB2_DM:
-  - U8/USB0_DN
+  - U12/USB0_DN
   - J1/D_N
   - J1/D_N_2
   - D4/A1
   PCIE_T0PB:
-  - U8/USB3_SSTX_P
+  - U12/USB3_SSTX_P
   - C1/P1
   PCIE_T0NB:
-  - U8/USB3_SSTX_N
+  - U12/USB3_SSTX_N
   - C2/P1
   PCIE_R0PB:
-  - U8/USB3_SSRX_P
+  - U12/USB3_SSRX_P
   - C3/P2
   PCIE_R0NB:
-  - U8/USB3_SSRX_N
+  - U12/USB3_SSRX_N
   - C4/P2
   M2_TX0_P:
   - J2/PETp0
-  - U9/A0+
+  - U14/A0+
   M2_TX0_N:
   - J2/PETn0
-  - U9/A0-
+  - U14/A0-
   M2_RX0_P:
   - J2/PERp0
-  - U9/A1+
+  - U14/A1+
   M2_RX0_N:
   - J2/PERn0
-  - U9/A1-
+  - U14/A1-
   M2_TX1_P:
   - J2/PETp1
-  - U9/A2+
+  - U14/A2+
   M2_TX1_N:
   - J2/PETn1
-  - U9/A2-
+  - U14/A2-
   M2_RX1_P:
   - J2/PERp1
-  - U9/A3+
+  - U14/A3+
   M2_RX1_N:
   - J2/PERn1
-  - U9/A3-
+  - U14/A3-
   PCIEC_RX0_P:
-  - U8/PCIEC_RX0P
-  - U9/B0+
+  - U12/PCIEC_RX0P
+  - U14/B0+
   PCIEC_RX0_N:
-  - U8/PCIEC_RX0N
-  - U9/B0-
+  - U12/PCIEC_RX0N
+  - U14/B0-
   PCIEC_TX0_P:
-  - U8/PCIEC_TX0P
-  - U9/B1+
+  - U12/PCIEC_TX0P
+  - U14/B1+
   PCIEC_TX0_N:
-  - U8/PCIEC_TX0N
-  - U9/B1-
+  - U12/PCIEC_TX0N
+  - U14/B1-
   PCIEC_RX1_P:
-  - U8/PCIEC_RX1P
-  - U9/B2+
+  - U12/PCIEC_RX1P
+  - U14/B2+
   PCIEC_RX1_N:
-  - U8/PCIEC_RX1N
-  - U9/B2-
+  - U12/PCIEC_RX1N
+  - U14/B2-
   PCIEC_TX1_P:
-  - U8/PCIEC_TX1P
-  - U9/B3+
+  - U12/PCIEC_TX1P
+  - U14/B3+
   PCIEC_TX1_N:
-  - U8/PCIEC_TX1N
-  - U9/B3-
+  - U12/PCIEC_TX1N
+  - U14/B3-
   M2_PEDET:
   - J2/PEDET
-  - R17/P1
+  - R24/P1
   M2_DEVSLP:
   - J2/DEVSLP
-  - R18/P1
+  - R25/P1
   M2_3V3:
   - J2/3V3
   - J2/3V3_2
@@ -2460,119 +2460,119 @@ nets:
   - J2/3V3_7
   - J2/3V3_8
   - J2/3V3_9
-  - R17/P2
+  - R24/P2
   3V3_AUX:
-  - U5/VIN
-  - U6/VOUT
-  - U2/VCC
+  - U7/VIN
+  - U10/VOUT
+  - U4/VCC
   - L6/P1
-  - C29/P1
-  - R42/P2
-  - R43/P2
+  - C30/P1
+  - R17/P2
+  - R18/P2
   LX_PREAUTH:
   - L6/P2
-  - U5/SW
-  - D9/A1
+  - U7/SW
+  - D13/A1
   PWR_5V_PREAUTH:
-  - U5/VOUT
-  - D9/K
-  - U2/VIN
-  - U2/ENA
-  - C28/P1
-  - R10/P2
+  - U7/VOUT
+  - D13/K
+  - U4/VIN
+  - U4/ENA
+  - C29/P1
+  - R13/P2
   FB_PREAUTH:
-  - R10/P1
-  - U5/FB
-  - R11/P1
+  - R13/P1
+  - U7/FB
+  - R14/P1
   UART0_TX:
-  - U8/UART0_TXD
+  - U12/UART0_TXD
   - J3/TXD
   UART0_RX:
-  - U8/UART0_RXD
+  - U12/UART0_RXD
   - J3/RXD
   SBU1_DET:
-  - U8/GPIO00
-  - R12/P1
+  - U12/GPIO00
+  - R19/P1
   SBU_I2C_SCL:
   - J1/SBU1
-  - U7/D_P_A
-  - R42/P1
-  - D12/A1
+  - U13/D_P_A
+  - R17/P1
+  - D7/A1
   SBU_I2C_SDA:
   - J1/SBU2
-  - U7/D_N_A
-  - R43/P1
-  - D13/A1
+  - U13/D_N_A
+  - R18/P1
+  - D8/A1
   CC1:
   - J1/CC1
   - R1/P1
-  - U4/CC1
-  - U4/CC1_2
-  - D10/A1
+  - U6/CC1
+  - U6/CC1_2
+  - D5/A1
   CC2:
   - J1/CC2
   - R2/P1
-  - U4/CC2
-  - U4/CC2_2
-  - D11/A1
+  - U6/CC2
+  - U6/CC2_2
+  - D6/A1
   FUSB_INT#:
-  - U4/INT_N
-  - U8/GPIO74
+  - U6/INT_N
+  - U12/GPIO74
   SBU_SEL:
-  - U7/SEL
-  - U8/GPIO37
-  - R40/P1
-  SBU_EN:
-  - U7/OE#
-  - U8/GPIO79
-  - R41/P1
-  STATUS_LED:
-  - U8/GPIO01
-  - D8/GREEN_A
-  - D8/RED_A
-  STRAP2:
-  - U8/QSPI_DAT2
-  - R13/P1
-  STRAP3:
-  - U8/QSPI_DAT3
-  - R14/P1
-  STRAP4:
-  - U8/GPIO90
+  - U13/SEL
+  - U12/GPIO37
   - R15/P1
-  JTAG_SEL:
-  - U8/JTAG_SEL
+  SBU_EN:
+  - U13/OE#
+  - U12/GPIO79
   - R16/P1
+  STATUS_LED:
+  - U12/GPIO01
+  - D12/GREEN_A
+  - D12/RED_A
+  STRAP2:
+  - U12/QSPI_DAT2
+  - R20/P1
+  STRAP3:
+  - U12/QSPI_DAT3
+  - R21/P1
+  STRAP4:
+  - U12/GPIO90
+  - R22/P1
+  JTAG_SEL:
+  - U12/JTAG_SEL
+  - R23/P1
   GND:
-  - U8/VSS
+  - U12/VSS
   - U1/GND
   - U1/AGND
   - U1/FB1GND
   - U1/FB3GND
-  - U3/VSS
-  - U3/VSS_2
-  - U3/VSS_3
-  - U3/VSS_4
-  - U3/VSS_5
-  - U3/VSS_6
-  - U3/VSSQ
-  - U3/VSSQ_2
-  - U3/VSSQ_3
-  - U3/VSSQ_4
-  - U3/VSSQ_5
-  - U2/GND
+  - U5/VSS
+  - U5/VSS_2
+  - U5/VSS_3
+  - U5/VSS_4
+  - U5/VSS_5
+  - U5/VSS_6
+  - U5/VSSQ
+  - U5/VSSQ_2
+  - U5/VSSQ_3
+  - U5/VSSQ_4
+  - U5/VSSQ_5
+  - U4/GND
   - J1/GND
   - J1/GND_2
   - J1/GND_3
   - J1/GND_4
   - J3/GND
   - C11/NEG
-  - D8/CATHODE
+  - D12/CATHODE
   - D4/A2
-  - D7/A2
+  - D11/A2
   - D1/A2
   - D2/A2
-  - D5/A2
-  - D6/A2
+  - D9/A2
+  - D10/A2
   - D3/A2
   - C23/P2
   - C25/P2
@@ -2593,10 +2593,10 @@ nets:
   - C24/P2
   - R1/P2
   - R2/P2
-  - R13/P2
-  - R14/P2
-  - R15/P2
-  - R16/P2
+  - R20/P2
+  - R21/P2
+  - R22/P2
+  - R23/P2
   - C6/P2
   - C7/P2
   - C8/P2
@@ -2616,61 +2616,61 @@ nets:
   - J2/GND_12
   - J2/GND_13
   - J2/GND_14
-  - U9/GND
-  - U9/GND_2
-  - U9/GND_3
-  - U9/GND_4
-  - U9/GND_5
-  - U9/GND_6
-  - U9/GND_7
-  - U5/GND
-  - U7/GND
-  - U4/GND
-  - U4/GND_2
-  - Y2/GND
-  - U6/GND
-  - C29/P2
-  - C26/P2
-  - C27/P2
-  - C28/P2
-  - R11/P2
-  - R18/P2
-  - U12/GND
-  - U13/GND
   - U14/GND
   - U14/GND_2
-  - U11/GND
+  - U14/GND_3
+  - U14/GND_4
+  - U14/GND_5
+  - U14/GND_6
+  - U14/GND_7
+  - U7/GND
+  - U13/GND
+  - U6/GND
+  - U6/GND_2
+  - Y2/GND
   - U10/GND
-  - U10/GND_2
-  - U10/GND_3
-  - U10/GND_4
-  - U10/GND_5
-  - U10/GND_6
-  - U10/GND_7
-  - C38/P2
-  - R40/P2
-  - R41/P2
-  - R44/P2
-  - R45/P2
-  - D10/A2
-  - D11/A2
-  - D12/A2
-  - D13/A2
+  - C30/P2
+  - C27/P2
+  - C28/P2
+  - C29/P2
+  - R14/P2
+  - R25/P2
+  - U11/GND
+  - U9/GND
+  - U3/GND
+  - U3/GND_2
+  - U2/GND
+  - U8/GND
+  - U8/GND_2
+  - U8/GND_3
+  - U8/GND_4
+  - U8/GND_5
+  - U8/GND_6
+  - U8/GND_7
+  - C26/P2
+  - R15/P2
+  - R16/P2
+  - R8/P2
+  - R10/P2
+  - D5/A2
+  - D6/A2
+  - D7/A2
+  - D8/A2
   - J1/SHIELD
   VBUS_IN:
   - J1/VBUS
   - J1/VBUS_2
   - J1/VBUS_3
   - J1/VBUS_4
-  - U11/IN
-  - U6/VIN
-  - U6/EN
-  - U5/EN
-  - U4/VBUS
+  - U2/IN
+  - U10/VIN
+  - U10/EN
+  - U7/EN
+  - U6/VBUS
   - D3/A1
   - C5/P1
   PWR_5V_WORK:
-  - U11/VOUT
+  - U2/VOUT
   - U1/VIN
   - U1/VIN2
   - U1/VIN3
@@ -2681,148 +2681,148 @@ nets:
   - U1/ALDOIN
   - U1/DLDOIN1
   - U1/DLDOIN2
-  - C27/P1
+  - C28/P1
   - C11/POS
   PWR_EN:
-  - U11/ON
-  - U2/AUTH_OK
-  - R44/P1
+  - U2/ON
+  - U4/AUTH_OK
+  - R8/P1
   ORI_SEL_B1:
-  - U8/GPIO88
-  - U13/A1
+  - U12/GPIO88
+  - U9/A1
   ORI_PD_B1:
-  - U8/GPIO89
-  - U13/A2
+  - U12/GPIO89
+  - U9/A2
   ORI_SEL:
-  - U13/B1
-  - U10/SEL1
-  - U10/SEL2
+  - U9/B1
+  - U8/SEL1
+  - U8/SEL2
   ORI_PD:
-  - U13/B2
-  - U10/PD1
-  - U10/PD2
+  - U9/B2
+  - U8/PD1
+  - U8/PD2
   PCIE_TC_TX0_P:
   - J1/TX1_N
-  - C31/P2
+  - C32/P2
   - C1/P2
   - D1/A1
   PCIE_TC_TX0_N:
   - J1/TX1_P
-  - C35/P2
+  - C36/P2
   - C2/P2
   - D2/A1
   PCIE_TC_TX1_P:
   - J1/TX2_P
-  - C32/P2
+  - C33/P2
   PCIE_TC_TX1_N:
   - J1/TX2_N
-  - C36/P2
+  - C37/P2
   PCIE_TC_RX0_P:
   - J1/RX1_P
-  - C33/P2
+  - C34/P2
   - C3/P1
-  - D6/A1
+  - D10/A1
   PCIE_TC_RX0_N:
   - J1/RX1_N
-  - C37/P2
+  - C38/P2
   - C4/P1
-  - D5/A1
+  - D9/A1
   PCIE_TC_RX1_P:
   - J1/RX2_N
-  - C30/P2
+  - C31/P2
   PCIE_TC_RX1_N:
   - J1/RX2_P
-  - C34/P2
+  - C35/P2
   PCIE_S1_TX0_P:
-  - U9/C0+
-  - U10/A0+
+  - U14/C0+
+  - U8/A0+
   PCIE_S1_TX0_N:
-  - U9/C0-
-  - U10/A0-
+  - U14/C0-
+  - U8/A0-
   PCIE_S1_RX0_P:
-  - U9/C1+
-  - U10/A1+
+  - U14/C1+
+  - U8/A1+
   PCIE_S1_RX0_N:
-  - U9/C1-
-  - U10/A1-
+  - U14/C1-
+  - U8/A1-
   PCIE_S1_TX1_P:
-  - U9/C2+
-  - U10/A2+
+  - U14/C2+
+  - U8/A2+
   PCIE_S1_TX1_N:
-  - U9/C2-
-  - U10/A2-
+  - U14/C2-
+  - U8/A2-
   PCIE_S1_RX1_P:
-  - U9/C3+
-  - U10/A3+
+  - U14/C3+
+  - U8/A3+
   PCIE_S1_RX1_N:
-  - U9/C3-
-  - U10/A3-
+  - U14/C3-
+  - U8/A3-
   PCIE_S2_TX0_P:
-  - U10/B0+
-  - U10/C2+
-  - C31/P1
-  PCIE_S2_TX0_N:
-  - U10/B0-
-  - U10/C2-
-  - C35/P1
-  PCIE_S2_RX0_P:
-  - U10/B1+
-  - U10/C3+
-  - C33/P1
-  PCIE_S2_RX0_N:
-  - U10/B1-
-  - U10/C3-
-  - C37/P1
-  PCIE_S2_TX1_P:
-  - U10/B2+
-  - U10/C0+
+  - U8/B0+
+  - U8/C2+
   - C32/P1
-  PCIE_S2_TX1_N:
-  - U10/B2-
-  - U10/C0-
+  PCIE_S2_TX0_N:
+  - U8/B0-
+  - U8/C2-
   - C36/P1
-  PCIE_S2_RX1_P:
-  - U10/B3+
-  - U10/C1+
-  - C30/P1
-  PCIE_S2_RX1_N:
-  - U10/B3-
-  - U10/C1-
+  PCIE_S2_RX0_P:
+  - U8/B1+
+  - U8/C3+
   - C34/P1
+  PCIE_S2_RX0_N:
+  - U8/B1-
+  - U8/C3-
+  - C38/P1
+  PCIE_S2_TX1_P:
+  - U8/B2+
+  - U8/C0+
+  - C33/P1
+  PCIE_S2_TX1_N:
+  - U8/B2-
+  - U8/C0-
+  - C37/P1
+  PCIE_S2_RX1_P:
+  - U8/B3+
+  - U8/C1+
+  - C31/P1
+  PCIE_S2_RX1_N:
+  - U8/B3-
+  - U8/C1-
+  - C35/P1
   PERST#_B1:
-  - U8/PCIE0_PERSTN
-  - U12/A
+  - U12/PCIE0_PERSTN
+  - U11/A
   PERST#_SSD:
-  - U12/B
+  - U11/B
   - J2/PERST#
-  - R45/P1
+  - R10/P1
   REFCLK_XO:
   - Y2/OUT
-  - U14/IN_P
+  - U3/IN_P
   REFCLK_XO_N:
-  - U14/IN_N
-  - C38/P1
+  - U3/IN_N
+  - C26/P1
   REFCLK_100M_P:
-  - U14/OUT1_P
+  - U3/OUT1_P
   - J2/REFCLKp
   REFCLK_100M_N:
-  - U14/OUT1_N
+  - U3/OUT1_N
   - J2/REFCLKn
-  - C26/P1
+  - C27/P1
   REFCLK_B1_P:
-  - U14/OUT2_P
-  - U8/PCIEC_REFCLK_P
+  - U3/OUT2_P
+  - U12/PCIEC_REFCLK_P
   REFCLK_B1_N:
-  - U14/OUT2_N
-  - U8/PCIEC_REFCLK_N
+  - U3/OUT2_N
+  - U12/PCIEC_REFCLK_N
   MUX_SEL:
-  - U9/SEL1
-  - U9/SEL2
-  - U8/GPIO72
+  - U14/SEL1
+  - U14/SEL2
+  - U12/GPIO72
   MUX_PD:
-  - U9/PD1
-  - U9/PD2
-  - U8/GPIO73
+  - U14/PD1
+  - U14/PD2
+  - U12/GPIO73
 nc:
 - - U1
   - ALDO1_OUT
@@ -2832,45 +2832,57 @@ nc:
   - DLDO1_OUT
 - - U1
   - DLDO2_OUT
-- - D9
+- - D13
   - A2
-- - U4
-  - VCONN
-- - U4
-  - VCONN_2
 - - U6
+  - VCONN
+- - U6
+  - VCONN_2
+- - U10
   - NC_ADJ
-- - U7
+- - U13
   - D_N_B
-- - U7
+- - U13
   - D_P_B
-- - U8
+- - U12
   - PCIEA_REFCLK_N
-- - U8
+- - U12
   - PCIEA_REFCLK_P
-- - U8
+- - U12
   - PCIEB_REFCLK_N
-- - U8
+- - U12
   - PCIEB_REFCLK_P
-- - U8
+- - U12
   - PCIEB_RX0N
-- - U8
+- - U12
   - PCIEB_RX0P
-- - U8
+- - U12
   - PCIEB_RX1N
-- - U8
+- - U12
   - PCIEB_RX1P
-- - U8
+- - U12
   - PCIEB_TX0N
-- - U8
+- - U12
   - PCIEB_TX0P
-- - U8
+- - U12
   - PCIEB_TX1N
-- - U8
+- - U12
   - PCIEB_TX1P
-- - U9
+- - U14
   - NC
-- - U9
+- - U14
+  - NC_2
+- - J2
+  - CLKREQ#
+- - J2
+  - PEWAKE#
+- - U2
+  - NC
+- - U2
+  - QOD
+- - U8
+  - NC
+- - U8
   - NC_2
 sheets:
   Power (P1 PMIC + B1 power tree):
@@ -2890,7 +2902,7 @@ sheets:
         x: 45
         y: 45
         rotation: 0
-      D5:
+      D9:
         symbol: TVS_BIDIR
         x: 97.46
         y: 45
@@ -2900,7 +2912,7 @@ sheets:
         x: 45
         y: 80
         rotation: 0
-      D6:
+      D10:
         symbol: TVS_BIDIR
         x: 97.46
         y: 80
@@ -2915,7 +2927,7 @@ sheets:
         x: 45
         y: 180
         rotation: 0
-      D7:
+      D11:
         symbol: TVS_BIDIR
         x: 100
         y: 215
@@ -3123,7 +3135,7 @@ sheets:
         y: 130
         rotation: 0
         unit_column: 3
-      U11:
+      U2:
         symbol: TPS22919
         x: 420
         y: 300
@@ -3131,22 +3143,22 @@ sheets:
         nc:
         - NC
         - QOD
-      D10:
+      D5:
         symbol: TVS_BIDIR
         x: 45
         y: 210
         rotation: 0
-      D11:
+      D6:
         symbol: TVS_BIDIR
         x: 45
         y: 230
         rotation: 0
-      D12:
+      D7:
         symbol: TVS_BIDIR
         x: 45
         y: 260
         rotation: 0
-      D13:
+      D8:
         symbol: TVS_BIDIR
         x: 45
         y: 280
@@ -3157,14 +3169,14 @@ sheets:
     - 594.0
     - 420.0
     placements:
-      U3:
+      U5:
         symbol: EMMC_5_1
         x: 80
         y: 90
         rotation: 0
         unit_column: 1
         unit_gap: 24
-      U8:
+      U12:
         symbol: SOM_B1
         x: 200
         y: 150
@@ -3172,7 +3184,7 @@ sheets:
         unit_column: 4
         unit_gap: 16
         unit_top_offset: 7.62
-      U2:
+      U4:
         symbol: SE050
         x: 80
         y: 230
@@ -3182,18 +3194,18 @@ sheets:
         x: 350.52
         y: 238.76
         rotation: 0
-      D8:
+      D12:
         symbol: LED_DUAL
         x: 280
         y: 250
         rotation: 0
-      R13:
+      R20:
         symbol: RES_0402
         x: 290
         y: 60
         rotation: 0
         value: 10K
-      R14:
+      R21:
         symbol: RES_0402
         x: 335
         y: 60
@@ -3205,31 +3217,31 @@ sheets:
         y: 78.7
         rotation: 0
         value: 1M
-      R15:
+      R22:
         symbol: RES_0402
         x: 290
         y: 85
         rotation: 0
         value: 10K
-      R16:
+      R23:
         symbol: RES_0402
         x: 335
         y: 85
         rotation: 0
         value: 10K
-      R12:
+      R19:
         symbol: RES_0402
         x: 230
         y: 245
         rotation: 0
         value: 100K
-      R8:
+      R9:
         symbol: RES_0402
         x: 127.0
         y: 260
         rotation: 0
         value: 4.7K
-      R9:
+      R12:
         symbol: RES_0402
         x: 177.8
         y: 260
@@ -3266,75 +3278,75 @@ sheets:
         nc:
         - CLKREQ#
         - PEWAKE#
-      U9:
+      U14:
         symbol: PI3DBS16412
         x: 530
         y: 110
         rotation: 0
-      C31:
-        symbol: CAP_0402
-        x: 490
-        y: 260
-        rotation: 0
-        value: 100nF
-      C35:
-        symbol: CAP_0402
-        x: 550
-        y: 260
-        rotation: 0
-        value: 100nF
       C32:
         symbol: CAP_0402
         x: 490
-        y: 300
+        y: 260
         rotation: 0
         value: 100nF
       C36:
         symbol: CAP_0402
         x: 550
-        y: 300
+        y: 260
         rotation: 0
         value: 100nF
       C33:
         symbol: CAP_0402
         x: 490
-        y: 340
+        y: 300
         rotation: 0
         value: 100nF
       C37:
         symbol: CAP_0402
         x: 550
-        y: 340
-        rotation: 0
-        value: 100nF
-      C30:
-        symbol: CAP_0402
-        x: 420
-        y: 360
+        y: 300
         rotation: 0
         value: 100nF
       C34:
         symbol: CAP_0402
         x: 490
+        y: 340
+        rotation: 0
+        value: 100nF
+      C38:
+        symbol: CAP_0402
+        x: 550
+        y: 340
+        rotation: 0
+        value: 100nF
+      C31:
+        symbol: CAP_0402
+        x: 420
         y: 360
         rotation: 0
         value: 100nF
-      U5:
+      C35:
+        symbol: CAP_0402
+        x: 490
+        y: 360
+        rotation: 0
+        value: 100nF
+      U7:
         symbol: DCDC_12V_3V3
         x: 250
         y: 290
         rotation: 0
-      U7:
+      U13:
         symbol: TS3USB221A
         x: 430
         y: 280
         rotation: 0
-      U4:
+      U6:
         symbol: FUSB302
         x: 270
         y: 200
         rotation: 0
-      U6:
+      U10:
         symbol: LDO_5V_3V3
         x: 380
         y: 40
@@ -3350,62 +3362,62 @@ sheets:
         y: 340
         rotation: 0
         value: 4.7uH
-      D9:
+      D13:
         symbol: BAT54C
         x: 295
         y: 280
         rotation: 0
         nc:
         - A2
-      R10:
+      R13:
         symbol: RES_0402
         x: 205
         y: 320
         rotation: 0
         value: 100k
-      R11:
+      R14:
         symbol: RES_0402
         x: 205
         y: 350
         rotation: 0
         value: 11k
-      R17:
+      R24:
         symbol: RES_0402
         x: 410
         y: 310
         rotation: 0
         value: 100k
-      R18:
+      R25:
         symbol: RES_0402
         x: 410
         y: 330
         rotation: 0
         value: 100k
-      C29:
+      C30:
         symbol: CAP_0402
         x: 295
         y: 320
         rotation: 0
         value: 10uF
-      C26:
+      C27:
         symbol: CAP_0402
         x: 155
         y: 330
         rotation: 0
         value: 100nF
-      C27:
+      C28:
         symbol: CAP_0402
         x: 140
         y: 350
         rotation: 0
         value: 100nF
-      C28:
+      C29:
         symbol: CAP_0402
         x: 340
         y: 290
         rotation: 0
         value: 10uF
-      U10:
+      U8:
         symbol: PI3DBS16412
         x: 310
         y: 135
@@ -3413,64 +3425,64 @@ sheets:
         nc:
         - NC
         - NC_2
-      U12:
+      U11:
         symbol: SN74LVC1T45
         x: 350
         y: 350
         rotation: 0
-      U13:
+      U9:
         symbol: SN74LVC2T45
         x: 300
         y: 360
         rotation: 0
-      U14:
+      U3:
         symbol: CLK_BUF_1TO2
         x: 120
         y: 180
         rotation: 0
-      R40:
+      R15:
         symbol: RES_0402
         x: 240
         y: 110
         rotation: 0
         value: 10K
-      R41:
+      R16:
         symbol: RES_0402
         x: 240
         y: 130
         rotation: 0
         value: 10K
-      R42:
+      R17:
         symbol: RES_0402
         x: 240
         y: 150
         rotation: 0
         value: 10K
-      R43:
+      R18:
         symbol: RES_0402
         x: 240
         y: 170
         rotation: 0
         value: 10K
-      R44:
+      R8:
         symbol: RES_0402
         x: 80
         y: 370
         rotation: 0
         value: 10K
-      R45:
+      R10:
         symbol: RES_0402
         x: 150
         y: 370
         rotation: 0
         value: 10K
-      C38:
+      C26:
         symbol: CAP_0402
         x: 160
         y: 150
         rotation: 0
         value: 100nF
-      R46:
+      R11:
         symbol: RES_0402
         x: 190
         y: 125
