@@ -1,26 +1,7 @@
-# M.2 拓扑（Q1-B）:
-#   Mode B 运行: M.2 SSD PCIe x2 直通 Type-C 注入 HOST, 不经 B1
-#     (M.2→PI3DBS16412→Type-C 4 差分对→K1→OCuLink→HOST)
-#   Mode A: B1 经 PCIEC x2 连 M.2（UAS 桥接）, MUX 切换（B1 PCIEC ↔ Type-C 通道）
-# PCIE 引脚组（ball 号 = b1_pin_map.json 568-ball 实证, ECO #31 T3）:
-#   PCIEA x1: REFCLK AG1/AG2（数据对 USB3_SSTX/SSRX = AH1/AH2, AF1/AF2 复用）
-#   PCIEB x2: REFCLK T21/T22, TX0 N21/N22, TX1 M21/M22, RX0 R21/R22, RX1 P21/P22
-#   PCIEC x2: REFCLK L21/L22, TX0 H21/H22, TX1 G21/G22, RX0 K21/K22, RX1 J21/J22
-#   PERST# = PCIE0_PERSTN @ B5（GPIO54 复用）
-# UCPD 引脚重分配决策（LEAD OI#7: UCPD 内建; 本决策由 K1 侧 ioconvert_v2.yaml 应用, T8 范围, 本文件仅落档）:
-#   实测核对（ST DS12288 Table 12 + Figure 12, 2026-08-20）:
-#     PA9 = UCPD1_DBCC1, PA10 = UCPD1_DBCC2（死电池 Rd 控制, 非 UCPD1_DP/DM）
-#     UCPD1_CC1 = PA8（标准 KBU6 已引出）; UCPD1_CC2 = PB15 —— 标准 STM32G0B1KBU6 未引出（仅 N 版 KBU6N pin17）
-#   冲突: 原决策"释放 PA9/PA10 给 UCPD1_DM/DP"前提不成立（PA9/PA10 无 DM/DP 复用）
-#   落档决策: UART 从 PA9/PA10 移 J9 OOB 接口后需 LEAD 复核下述路径:
-#     a) 换 STM32G0B1KBU6N（CC1=PA8 + CC2=PB15, VDDIO2）— 保 OI#7 内建
-#     b) 单 CC（仅 CC1）— 仅固定朝向/单向线缆可用
-#     c) 外置 CC/PD PHY — 违 OI#7 内建, 降级备用
-#   ⚠ 需 LEAD 复核裁定; 执行属 T8（ioconvert_v2.yaml）, 本文件禁止改 ioconvert
-title: "KEY v2 — K1 Minimal System (USB-A Dongle)"
+title: KEY v2 — K1 Minimal System (USB-A Dongle)
 symbols:
   SOM_B1:
-    description: "SpacemiT B1 CoM (K1 6370 + LPDDR4x 4GB, PsP BGA 568, 23\xD733mm)"
+    description: SpacemiT B1 CoM (K1 6370 + LPDDR4x 4GB, PsP BGA 568, 23×33mm)
     ref_prefix: U
     value: SOM_B1
     footprint: KeyV2_Footprints:B1_PsP_568
@@ -139,8 +120,6 @@ symbols:
       - INPUT
       - right
       - 3
-      # PCIE 引脚补齐（ball 号 = b1_pin_map.json 568-ball 实证, ECO #31 T3）
-      # PCIEA: REFCLK AG1/AG2（数据对与 USB3_SSTX/SSRX 复用, 见上）
       PCIEA_REFCLK_P:
       - PCIEA_REFCLK_P
       - AG1
@@ -153,7 +132,6 @@ symbols:
       - BI
       - right
       - 3
-      # PCIEB x2（Mode B 运行: M.2→Type-C 直通 HOST 复用对）
       PCIEB_REFCLK_P:
       - PCIEB_REFCLK_P
       - T21
@@ -214,7 +192,6 @@ symbols:
       - INPUT
       - bottom
       - 4
-      # PCIEC x2（Mode A: B1 UAS 桥接连 M.2）
       PCIEC_REFCLK_P:
       - PCIEC_REFCLK_P
       - L21
@@ -275,19 +252,12 @@ symbols:
       - INPUT
       - bottom
       - 4
-      # PERST#（B5 = GPIO54 复用, b1_pin_map 名 PCIE0_PERSTN, 直命中 datasheet 片段）
       PCIE0_PERSTN:
       - PCIE0_PERSTN
       - B5
       - OUTPUT
       - bottom
       - 4
-      # ── T6 GPIO 分配表 (ball = b1_pin_map.json 568-ball 实证, ECO #31 T6) ──
-      #   GPIO72 @ H1 → MUX_SEL  (PI3DBS16412 SEL: Mode A=0 M.2↔B1, Mode B=1 M.2↔Type-C)
-      #   GPIO73 @ H2 → MUX_PD   (PI3DBS16412 PD:  预鉴权=1 高阻关断)
-      #   GPIO74 @ H3 → FUSB_INT# (FUSB302 INT_N 开漏低有效中断)
-      #   GPIO37 @ AL18 → SBU_SEL (TS3USB221A SEL: 预鉴权=0 导通 SBU↔SE050)
-      #   GPIO79 @ AM14 → SBU_EN  (TS3USB221A OE# 低有效使能, 预鉴权导通/运行态隔离)
       GPIO72:
       - GPIO72
       - H1
@@ -492,89 +462,269 @@ symbols:
       - PASSIVE
       - bottom
       - 4
+      GPIO88:
+      - GPIO88
+      - C3
+      - BIDIR
+      - bottom
+      - 4
+      GPIO89:
+      - GPIO89
+      - B1
+      - BIDIR
+      - bottom
+      - 4
   FUSB302:
-    description: "USB-PD CC 控制器 (WQFN-14)。CC1/CC2 检测 + BMC PD, I2C 从机; VDM 载体 (OI#7)。VCONN 悬空 (KEY 为 UFP/Device, 不供线缆电源)"
+    description: USB-PD CC 控制器 (WQFN-14)。CC1/CC2 检测 + BMC PD, I2C 从机; VDM 载体 (OI#7)。VCONN 悬空 (KEY 为 UFP/Device, 不供线缆电源)
     ref_prefix: U
     value: FUSB302
-    footprint: KeyV2_Footprints:FUSB302  # FP-01 待补 (WQFN-14 MPX)
+    footprint: KeyV2_Footprints:FUSB302
     pins:
-      CC1: [CC1, 10, BI, left]
-      CC1_2: [CC1_2, 11, BI, left]
-      CC2: [CC2, 1, BI, left]
-      CC2_2: [CC2_2, 14, BI, left]
-      VBUS: [VBUS, 2, PASSIVE, left]
-      VDD: [VDD, 3, PASSIVE, left]
-      VDD_2: [VDD_2, 4, PASSIVE, left]
-      INT_N: [INT_N, 5, OUTPUT, right]
-      SCL: [SCL, 6, BI, right]
-      SDA: [SDA, 7, BI, right]
-      GND: [GND, 8, PASSIVE, right]
-      GND_2: [GND_2, 9, PASSIVE, right]
-      VCONN: [VCONN, 12, PASSIVE, right]
-      VCONN_2: [VCONN_2, 13, PASSIVE, right]
+      CC1:
+      - CC1
+      - 10
+      - BI
+      - left
+      CC1_2:
+      - CC1_2
+      - 11
+      - BI
+      - left
+      CC2:
+      - CC2
+      - 1
+      - BI
+      - left
+      CC2_2:
+      - CC2_2
+      - 14
+      - BI
+      - left
+      VBUS:
+      - VBUS
+      - 2
+      - PASSIVE
+      - left
+      VDD:
+      - VDD
+      - 3
+      - PASSIVE
+      - left
+      VDD_2:
+      - VDD_2
+      - 4
+      - PASSIVE
+      - left
+      INT_N:
+      - INT_N
+      - 5
+      - OUTPUT
+      - right
+      SCL:
+      - SCL
+      - 6
+      - BI
+      - right
+      SDA:
+      - SDA
+      - 7
+      - BI
+      - right
+      GND:
+      - GND
+      - 8
+      - PASSIVE
+      - right
+      GND_2:
+      - GND_2
+      - 9
+      - PASSIVE
+      - right
+      VCONN:
+      - VCONN
+      - 12
+      - PASSIVE
+      - right
+      VCONN_2:
+      - VCONN_2
+      - 13
+      - PASSIVE
+      - right
   TS3USB221A:
-    description: "USB2 2:1 MUX 复用为 SBU↔SE050 I2C 隔离开关 (OI#4): 1D±=SBU 侧, D±=SE050 I2C2 总线侧, SEL/OE#=B1 GPIO"
+    description: 'USB2 2:1 MUX 复用为 SBU↔SE050 I2C 隔离开关 (OI#4): 1D±=SBU 侧, D±=SE050 I2C2 总线侧, SEL/OE#=B1 GPIO'
     ref_prefix: U
     value: TS3USB221A
-    footprint: KeyV2_Footprints:TS3USB221A  # FP-01 待补 (UQFN-10 RSE)
+    footprint: KeyV2_Footprints:TS3USB221A
     pins:
-      D_P_A: [D_P_A, 1, BI, left]
-      D_N_A: [D_N_A, 2, BI, left]
-      D_P_B: [D_P_B, 3, BI, left]
-      D_N_B: [D_N_B, 4, BI, left]
-      GND: [GND, 5, PASSIVE, left]
-      OE#: [OE#, 6, INPUT, right]
-      D_N: [D_N, 7, BI, right]
-      D_P: [D_P, 8, BI, right]
-      SEL: [SEL, 9, INPUT, right]
-      VCC: [VCC, 10, PASSIVE, right]
+      D_P_A:
+      - D_P_A
+      - 1
+      - BI
+      - left
+      D_N_A:
+      - D_N_A
+      - 2
+      - BI
+      - left
+      D_P_B:
+      - D_P_B
+      - 3
+      - BI
+      - left
+      D_N_B:
+      - D_N_B
+      - 4
+      - BI
+      - left
+      GND:
+      - GND
+      - 5
+      - PASSIVE
+      - left
+      OE#:
+      - OE#
+      - 6
+      - INPUT
+      - right
+      D_N:
+      - D_N
+      - 7
+      - BI
+      - right
+      D_P:
+      - D_P
+      - 8
+      - BI
+      - right
+      SEL:
+      - SEL
+      - 9
+      - INPUT
+      - right
+      VCC:
+      - VCC
+      - 10
+      - PASSIVE
+      - right
   DCDC_12V_3V3:
-    description: "TLV61046A boost (SOT-23-6)。KEY 侧 S5 预鉴权轨: 3V3_AUX→5V (<50mA, OI#9)"
+    description: 'TLV61046A boost (SOT-23-6)。KEY 侧 S5 预鉴权轨: 3V3_AUX→5V (<50mA, OI#9)'
     ref_prefix: U
     value: DCDC_12V_3V3
     footprint: Package_TO_SOT_SMD:SOT-23-6
     pins:
-      SW: [SW, 1, PASSIVE, left]
-      GND: [GND, 2, PASSIVE, left]
-      FB: [FB, 3, INPUT, left]
-      EN: [EN, 4, INPUT, left]
-      VOUT: [VOUT, 5, POWER_OUT, right]
-      VIN: [VIN, 6, PASSIVE, left]
+      SW:
+      - SW
+      - 1
+      - PASSIVE
+      - left
+      GND:
+      - GND
+      - 2
+      - PASSIVE
+      - left
+      FB:
+      - FB
+      - 3
+      - INPUT
+      - left
+      EN:
+      - EN
+      - 4
+      - INPUT
+      - left
+      VOUT:
+      - VOUT
+      - 5
+      - POWER_OUT
+      - right
+      VIN:
+      - VIN
+      - 6
+      - PASSIVE
+      - left
   XO_100M:
-    description: "100MHz XO (3225, SRIS/SSC-Off 本地时钟, OI#2)。OUT→M.2 REFCLKp"
+    description: 100MHz XO (3225, SRIS/SSC-Off 本地时钟, OI#2)。OUT→M.2 REFCLKp
     ref_prefix: Y
     value: XO_100M
     footprint: KeyV2_Footprints:XO_3225
     pins:
-      EN: [EN, 1, INPUT, left]
-      GND: [GND, 2, PASSIVE, left]
-      OUT: [OUT, 3, OUTPUT, right]
-      VCC: [VCC, 4, PASSIVE, left]
+      EN:
+      - EN
+      - 1
+      - INPUT
+      - left
+      GND:
+      - GND
+      - 2
+      - PASSIVE
+      - left
+      OUT:
+      - OUT
+      - 3
+      - OUTPUT
+      - right
+      VCC:
+      - VCC
+      - 4
+      - PASSIVE
+      - left
   LDO_5V_3V3:
-    description: "AP2127K LDO (SOT-23-5)。VBUS→3V3_AUX (预鉴权链中间轨, 供 TLV61046 与 SE050 核心)"
+    description: AP2127K LDO (SOT-23-5)。VBUS→3V3_AUX (预鉴权链中间轨, 供 TLV61046 与 SE050 核心)
     ref_prefix: U
     value: LDO_5V_3V3
     footprint: Package_TO_SOT_SMD:SOT-23-5
     pins:
-      VIN: [VIN, 1, PASSIVE, left]
-      GND: [GND, 2, PASSIVE, left]
-      EN: [EN, 3, INPUT, left]
-      NC_ADJ: [NC_ADJ, 4, NC, left]
-      VOUT: [VOUT, 5, POWER_OUT, right]
+      VIN:
+      - VIN
+      - 1
+      - PASSIVE
+      - left
+      GND:
+      - GND
+      - 2
+      - PASSIVE
+      - left
+      EN:
+      - EN
+      - 3
+      - INPUT
+      - left
+      NC_ADJ:
+      - NC_ADJ
+      - 4
+      - NC
+      - left
+      VOUT:
+      - VOUT
+      - 5
+      - POWER_OUT
+      - right
   BAT54C:
-    description: "BAT54C 双二极管共阴极 (SOT-23)。TLV61046 升压输出整流: A1=SW 开关节点, K=公共阴极→PWR_5V_PREAUTH, A2 悬空"
+    description: 'BAT54C 双二极管共阴极 (SOT-23)。TLV61046 升压输出整流: A1=SW 开关节点, K=公共阴极→PWR_5V_PREAUTH, A2 悬空'
     ref_prefix: D
     value: BAT54C
     footprint: Diode_SMD:D_SOT-23
     pins:
-      A1: [A1, 1, PASSIVE, left]
-      K: [K, 2, PASSIVE, right]
-      A2: [A2, 3, PASSIVE, left]
+      A1:
+      - A1
+      - 1
+      - PASSIVE
+      - left
+      A2:
+      - A2
+      - 2
+      - PASSIVE
+      - left
+      K:
+      - K
+      - 3
+      - PASSIVE
+      - right
   PMIC_P1:
     description: SpacemiT P1 PMIC, 6BUCK+12LDO, I2C8@0x41, QFN-60
     ref_prefix: U
     value: PMIC_P1
-    footprint: KeyV2_Footprints:PMIC_P1_QFN60
+    footprint: Package_DFN_QFN:QFN-60-1EP_7x7mm_P0.4mm_EP3.4x3.4mm
     pins:
       VIN:
       - VIN
@@ -720,7 +870,6 @@ symbols:
       - INPUT
       - left
       - 2
-      # nRESET: PMIC 复位输出 (开漏, R2 100K 上拉) 驱动 SoC RESET_IN_N (ECO #31 T6 修 pin_not_driven)
       nRESET:
       - nRESET
       - '55'
@@ -752,7 +901,7 @@ symbols:
       - bottom
       - 1
   EMMC_5_1:
-    description: "eMMC 5.1, 16/32GB, HS400, 153-ball BGA (industrial -40~85\xB0C)"
+    description: eMMC 5.1, 16/32GB, HS400, 153-ball BGA (industrial -40~85°C)
     ref_prefix: U
     value: EMMC_16G
     footprint: KeyV2_Footprints:EMMC_BGA153
@@ -996,12 +1145,13 @@ symbols:
       - '19'
       - PASSIVE
       - bottom
+      AUTH_OK:
+      - AUTH_OK
+      - '16'
+      - OUTPUT
+      - right
   USB_C_PLUG:
-    description: "TYPE C \u516C\u5934 24-pin \u903B\u8F91\u5206\u7EC4\u6620\u5C04\
-      : VBUS=A4/B4/A9/B9, GND=A1/B1/A12/B12, D_P=A6/B6, D_N=A7/B7, TX_P=A11+B11, TX_N=A10+B10,\
-      \ RX_P=A2+B2, RX_N=A3+B3, CC1=A5, CC2=B5, SBU1=A8, SBU2=B8. Device \u4FA7 TX=SSRXp1/SSTXp2\
-      \ \u7EC4\u3001RX=SSTXp1/SSRXp2 \u7EC4 (USB-C \u89C4\u8303 UFP \u63A5\u6CD5,\
-      \ \u53CC\u65B9\u5411\u63D2\u5165\u90FD\u901A)"
+    description: 'TYPE C 公头 24-pin 逻辑分组映射: VBUS=A4/B4/A9/B9, GND=A1/B1/A12/B12, D_P=A6/B6, D_N=A7/B7, TX_P=A11+B11, TX_N=A10+B10, RX_P=A2+B2, RX_N=A3+B3, CC1=A5, CC2=B5, SBU1=A8, SBU2=B8. Device 侧 TX=SSRXp1/SSTXp2 组、RX=SSTXp1/SSRXp2 组 (USB-C 规范 UFP 接法, 双方向插入都通)'
     ref_prefix: J
     value: USB_C_PLUG
     footprint: Connector_USB:USB_C_Plug_Molex_105444
@@ -1150,262 +1300,428 @@ symbols:
       - PASSIVE
       - right
       - 2
-  USB_C_RECEPT_24:
-    description: "TYPE C \u6BCD\u5EA7 24-pin (A1-B12 \u5168\u91CF, 4 \u5DEE\u5206\u5BF9\
-      ) \u7269\u7406\u811A\u53F7\u6620\u5C04: VBUS=A4/B4/A9/B9, GND=A1/B1/A12/B12,\
-      \ D_P=A6/B6, D_N=A7/B7, TX1=A11/A10(\u5BF9\u5E94 SSRXp1/SSRXn1), RX1=A2/A3(\u5BF9\
-      \u5E94 SSTXp1/SSTXn1), TX2=B11/B10(\u5BF9\u5E94 SSTXp2/SSTXn2), RX2=B2/B3(\u5BF9\
-      \u5E94 SSRXp2/SSRXn2), CC1=A5, CC2=B5, SBU1=A8, SBU2=B8. KEY \u5361\u4E3A UFP/Device\
-      \ \u4FA7: Device TX=SSRXp1/SSTXp2 \u7EC4\u3001RX=SSTXp1/SSRXp2 \u7EC4 (\u4E0E\
-      \ USB_C_PLUG \u91D1\u6807\u51C6\u4EA4\u53C9\u89C4\u5219\u81EA\u6D3D). Footprint\
-      \ = Connector_USB:USB_C_Receptacle_Molex_105450-0101 (24-pin \u6BCD\u5EA7,\
-      \ A1-B12 \u7269\u7406\u811A\u53F7)"
+  M2_M_SOCKET:
+    description: 'M.2 M-Key 卡边插座 (PCIe x4 物理, 本设计取 38 功能脚)。单 unit: 信号=right, 电源/GND=left'
     ref_prefix: J
-    value: USB_C_RECEPT_24
-    footprint: Connector_USB:USB_C_Receptacle_Molex_105450-0101
+    value: M2_M_SOCKET_2230_ONLY
+    footprint: KeyV2_Footprints:M2_M_SOCKET_2230_ONLY
     pins:
-      VBUS:
-      - VBUS
-      - A4
+      PERn0:
+      - PERn0
+      - 41
       - PASSIVE
       - right
-      - 1
-      VBUS_2:
-      - VBUS_2
-      - A9
+      PERp0:
+      - PERp0
+      - 43
       - PASSIVE
       - right
-      - 1
-      VBUS_3:
-      - VBUS_3
-      - B4
+      PETn0:
+      - PETn0
+      - 47
       - PASSIVE
       - right
-      - 1
-      VBUS_4:
-      - VBUS_4
-      - B9
+      PETp0:
+      - PETp0
+      - 49
       - PASSIVE
       - right
-      - 1
+      PERn1:
+      - PERn1
+      - 29
+      - PASSIVE
+      - right
+      PERp1:
+      - PERp1
+      - 31
+      - PASSIVE
+      - right
+      PETn1:
+      - PETn1
+      - 35
+      - PASSIVE
+      - right
+      PETp1:
+      - PETp1
+      - 37
+      - PASSIVE
+      - right
+      REFCLKn:
+      - REFCLKn
+      - 53
+      - PASSIVE
+      - right
+      REFCLKp:
+      - REFCLKp
+      - 55
+      - PASSIVE
+      - right
+      PERST#:
+      - PERST#
+      - 50
+      - INPUT
+      - right
+      CLKREQ#:
+      - CLKREQ#
+      - 52
+      - BIDIR
+      - right
+      PEWAKE#:
+      - PEWAKE#
+      - 54
+      - BIDIR
+      - right
+      PEDET:
+      - PEDET
+      - 69
+      - INPUT
+      - right
+      DEVSLP:
+      - DEVSLP
+      - 38
+      - INPUT
+      - right
+      3V3:
+      - 3V3
+      - 2
+      - PASSIVE
+      - left
+      3V3_2:
+      - 3V3_2
+      - 4
+      - PASSIVE
+      - left
+      3V3_3:
+      - 3V3_3
+      - 12
+      - PASSIVE
+      - left
+      3V3_4:
+      - 3V3_4
+      - 14
+      - PASSIVE
+      - left
+      3V3_5:
+      - 3V3_5
+      - 16
+      - PASSIVE
+      - left
+      3V3_6:
+      - 3V3_6
+      - 18
+      - PASSIVE
+      - left
+      3V3_7:
+      - 3V3_7
+      - 70
+      - PASSIVE
+      - left
+      3V3_8:
+      - 3V3_8
+      - 72
+      - PASSIVE
+      - left
+      3V3_9:
+      - 3V3_9
+      - 74
+      - PASSIVE
+      - left
       GND:
       - GND
-      - A1
-      - PASSIVE
-      - right
       - 1
+      - PASSIVE
+      - left
       GND_2:
       - GND_2
-      - A12
+      - 3
       - PASSIVE
-      - right
-      - 1
+      - left
       GND_3:
       - GND_3
-      - B1
+      - 9
       - PASSIVE
-      - right
-      - 1
+      - left
       GND_4:
       - GND_4
-      - B12
+      - 15
       - PASSIVE
-      - right
-      - 1
-      D_P:
-      - D_P
-      - A6
-      - BI
-      - right
-      - 2
-      D_P_2:
-      - D_P_2
-      - B6
-      - BI
-      - right
-      - 2
-      D_N:
-      - D_N
-      - A7
-      - BI
-      - right
-      - 2
-      D_N_2:
-      - D_N_2
-      - B7
-      - BI
-      - right
-      - 2
-      TX1_P:
-      - TX1_P
-      - A11
-      - BI
-      - right
-      - 2
-      TX1_N:
-      - TX1_N
-      - A10
-      - BI
-      - right
-      - 2
-      RX1_P:
-      - RX1_P
-      - A2
-      - BI
-      - right
-      - 2
-      RX1_N:
-      - RX1_N
-      - A3
-      - BI
-      - right
-      - 2
-      TX2_P:
-      - TX2_P
-      - B11
-      - BI
-      - right
-      - 2
-      TX2_N:
-      - TX2_N
-      - B10
-      - BI
-      - right
-      - 2
-      RX2_P:
-      - RX2_P
-      - B2
-      - BI
-      - right
-      - 2
-      RX2_N:
-      - RX2_N
-      - B3
-      - BI
-      - right
-      - 2
-      CC1:
-      - CC1
-      - A5
+      - left
+      GND_5:
+      - GND_5
+      - 21
       - PASSIVE
-      - right
-      - 1
-      CC2:
-      - CC2
-      - B5
+      - left
+      GND_6:
+      - GND_6
+      - 27
       - PASSIVE
-      - right
-      - 1
-      SBU1:
-      - SBU1
-      - A8
-      - BI
-      - right
-      - 2
-      SBU2:
-      - SBU2
-      - B8
+      - left
+      GND_7:
+      - GND_7
+      - 33
       - PASSIVE
-      - right
-      - 2
-  M2_M_SOCKET:
-    description: "M.2 M-Key 卡边插座 (PCIe x4 物理, 本设计取 38 功能脚)。单 unit: 信号=right, 电源/GND=left"
-    ref_prefix: J
-    value: M2_M_SOCKET
-    footprint: KeyV2_Footprints:M2_M_SOCKET
-    pins:
-      PERn0: [PERn0, 41, PASSIVE, right]
-      PERp0: [PERp0, 43, PASSIVE, right]
-      PETn0: [PETn0, 47, PASSIVE, right]
-      PETp0: [PETp0, 49, PASSIVE, right]
-      PERn1: [PERn1, 29, PASSIVE, right]
-      PERp1: [PERp1, 31, PASSIVE, right]
-      PETn1: [PETn1, 35, PASSIVE, right]
-      PETp1: [PETp1, 37, PASSIVE, right]
-      REFCLKn: [REFCLKn, 53, PASSIVE, right]
-      REFCLKp: [REFCLKp, 55, PASSIVE, right]
-      PERST#: [PERST#, 50, INPUT, right]
-      CLKREQ#: [CLKREQ#, 52, BIDIR, right]
-      PEWAKE#: [PEWAKE#, 54, BIDIR, right]
-      PEDET: [PEDET, 69, INPUT, right]
-      DEVSLP: [DEVSLP, 38, INPUT, right]
-      3V3: [3V3, 2, PASSIVE, left]
-      3V3_2: [3V3_2, 4, PASSIVE, left]
-      3V3_3: [3V3_3, 12, PASSIVE, left]
-      3V3_4: [3V3_4, 14, PASSIVE, left]
-      3V3_5: [3V3_5, 16, PASSIVE, left]
-      3V3_6: [3V3_6, 18, PASSIVE, left]
-      3V3_7: [3V3_7, 70, PASSIVE, left]
-      3V3_8: [3V3_8, 72, PASSIVE, left]
-      3V3_9: [3V3_9, 74, PASSIVE, left]
-      GND: [GND, 1, PASSIVE, left]
-      GND_2: [GND_2, 3, PASSIVE, left]
-      GND_3: [GND_3, 9, PASSIVE, left]
-      GND_4: [GND_4, 15, PASSIVE, left]
-      GND_5: [GND_5, 21, PASSIVE, left]
-      GND_6: [GND_6, 27, PASSIVE, left]
-      GND_7: [GND_7, 33, PASSIVE, left]
-      GND_8: [GND_8, 39, PASSIVE, left]
-      GND_9: [GND_9, 45, PASSIVE, left]
-      GND_10: [GND_10, 51, PASSIVE, left]
-      GND_11: [GND_11, 57, PASSIVE, left]
-      GND_12: [GND_12, 71, PASSIVE, left]
-      GND_13: [GND_13, 73, PASSIVE, left]
-      GND_14: [GND_14, 75, PASSIVE, left]
+      - left
+      GND_8:
+      - GND_8
+      - 39
+      - PASSIVE
+      - left
+      GND_9:
+      - GND_9
+      - 45
+      - PASSIVE
+      - left
+      GND_10:
+      - GND_10
+      - 51
+      - PASSIVE
+      - left
+      GND_11:
+      - GND_11
+      - 57
+      - PASSIVE
+      - left
+      GND_12:
+      - GND_12
+      - 71
+      - PASSIVE
+      - left
+      GND_13:
+      - GND_13
+      - 73
+      - PASSIVE
+      - left
+      GND_14:
+      - GND_14
+      - 75
+      - PASSIVE
+      - left
   PI3DBS16412:
-    description: "PI3DBS16412 4-lane 2:1 翻转 MUX (42-TQFN)。A=公共口(M.2), B=Mode A(B1 PCIEC), C=Mode B(Type-C); SEL1=0→A↔B, SEL1=1→A↔C, PD=1→hi-Z。footprint FP-01 待补"
+    description: PI3DBS16412 4-lane 2:1 翻转 MUX (42-TQFN)。A=公共口(M.2), B=Mode A(B1 PCIEC), C=Mode B(Type-C); SEL1=0→A↔B, SEL1=1→A↔C, PD=1→hi-Z。footprint FP-01 待补
     ref_prefix: U
     value: PI3DBS16412
     footprint: KeyV2_Footprints:PI3DBS16412
     pins:
-      A0+: [A0+, 2, BIDIR, left]
-      A0-: [A0-, 3, BIDIR, left]
-      A1+: [A1+, 6, BIDIR, left]
-      A1-: [A1-, 7, BIDIR, left]
-      A2+: [A2+, 11, BIDIR, left]
-      A2-: [A2-, 12, BIDIR, left]
-      A3+: [A3+, 15, BIDIR, left]
-      A3-: [A3-, 16, BIDIR, left]
-      B0+: [B0+, 38, BIDIR, top]
-      B0-: [B0-, 37, BIDIR, top]
-      B1+: [B1+, 36, BIDIR, top]
-      B1-: [B1-, 35, BIDIR, top]
-      B2+: [B2+, 29, BIDIR, top]
-      B2-: [B2-, 28, BIDIR, top]
-      B3+: [B3+, 27, BIDIR, top]
-      B3-: [B3-, 26, BIDIR, top]
-      C0+: [C0+, 34, BIDIR, right]
-      C0-: [C0-, 33, BIDIR, right]
-      C1+: [C1+, 32, BIDIR, right]
-      C1-: [C1-, 31, BIDIR, right]
-      C2+: [C2+, 25, BIDIR, right]
-      C2-: [C2-, 24, BIDIR, right]
-      C3+: [C3+, 23, BIDIR, right]
-      C3-: [C3-, 22, BIDIR, right]
-      SEL1: [SEL1, 8, INPUT, bottom]
-      SEL2: [SEL2, 17, INPUT, bottom]
-      PD1: [PD1, 1, INPUT, bottom]
-      PD2: [PD2, 10, INPUT, bottom]
-      NC: [NC, 18, NC, bottom]
-      NC_2: [NC_2, 42, NC, bottom]
-      VDD: [VDD, 5, PASSIVE, bottom]
-      VDD_2: [VDD_2, 9, PASSIVE, bottom]
-      VDD_3: [VDD_3, 13, PASSIVE, bottom]
-      VDD_4: [VDD_4, 20, PASSIVE, bottom]
-      VDD_5: [VDD_5, 30, PASSIVE, bottom]
-      VDD_6: [VDD_6, 40, PASSIVE, bottom]
-      GND: [GND, 4, PASSIVE, bottom]
-      GND_2: [GND_2, 14, PASSIVE, bottom]
-      GND_3: [GND_3, 19, PASSIVE, bottom]
-      GND_4: [GND_4, 21, PASSIVE, bottom]
-      GND_5: [GND_5, 39, PASSIVE, bottom]
-      GND_6: [GND_6, 41, PASSIVE, bottom]
-      GND_7: [GND_7, CP, PASSIVE, bottom]
+      A0+:
+      - A0+
+      - 2
+      - BIDIR
+      - left
+      A0-:
+      - A0-
+      - 3
+      - BIDIR
+      - left
+      A1+:
+      - A1+
+      - 6
+      - BIDIR
+      - left
+      A1-:
+      - A1-
+      - 7
+      - BIDIR
+      - left
+      A2+:
+      - A2+
+      - 11
+      - BIDIR
+      - left
+      A2-:
+      - A2-
+      - 12
+      - BIDIR
+      - left
+      A3+:
+      - A3+
+      - 15
+      - BIDIR
+      - left
+      A3-:
+      - A3-
+      - 16
+      - BIDIR
+      - left
+      B0+:
+      - B0+
+      - 38
+      - BIDIR
+      - top
+      B0-:
+      - B0-
+      - 37
+      - BIDIR
+      - top
+      B1+:
+      - B1+
+      - 36
+      - BIDIR
+      - top
+      B1-:
+      - B1-
+      - 35
+      - BIDIR
+      - top
+      B2+:
+      - B2+
+      - 29
+      - BIDIR
+      - top
+      B2-:
+      - B2-
+      - 28
+      - BIDIR
+      - top
+      B3+:
+      - B3+
+      - 27
+      - BIDIR
+      - top
+      B3-:
+      - B3-
+      - 26
+      - BIDIR
+      - top
+      C0+:
+      - C0+
+      - 34
+      - BIDIR
+      - right
+      C0-:
+      - C0-
+      - 33
+      - BIDIR
+      - right
+      C1+:
+      - C1+
+      - 32
+      - BIDIR
+      - right
+      C1-:
+      - C1-
+      - 31
+      - BIDIR
+      - right
+      C2+:
+      - C2+
+      - 25
+      - BIDIR
+      - right
+      C2-:
+      - C2-
+      - 24
+      - BIDIR
+      - right
+      C3+:
+      - C3+
+      - 23
+      - BIDIR
+      - right
+      C3-:
+      - C3-
+      - 22
+      - BIDIR
+      - right
+      SEL1:
+      - SEL1
+      - 8
+      - INPUT
+      - bottom
+      SEL2:
+      - SEL2
+      - 17
+      - INPUT
+      - bottom
+      PD1:
+      - PD1
+      - 1
+      - INPUT
+      - bottom
+      PD2:
+      - PD2
+      - 10
+      - INPUT
+      - bottom
+      NC:
+      - NC
+      - 18
+      - NC
+      - bottom
+      NC_2:
+      - NC_2
+      - 42
+      - NC
+      - bottom
+      VDD:
+      - VDD
+      - 5
+      - PASSIVE
+      - bottom
+      VDD_2:
+      - VDD_2
+      - 9
+      - PASSIVE
+      - bottom
+      VDD_3:
+      - VDD_3
+      - 13
+      - PASSIVE
+      - bottom
+      VDD_4:
+      - VDD_4
+      - 20
+      - PASSIVE
+      - bottom
+      VDD_5:
+      - VDD_5
+      - 30
+      - PASSIVE
+      - bottom
+      VDD_6:
+      - VDD_6
+      - 40
+      - PASSIVE
+      - bottom
+      GND:
+      - GND
+      - 4
+      - PASSIVE
+      - bottom
+      GND_2:
+      - GND_2
+      - 14
+      - PASSIVE
+      - bottom
+      GND_3:
+      - GND_3
+      - 19
+      - PASSIVE
+      - bottom
+      GND_4:
+      - GND_4
+      - 21
+      - PASSIVE
+      - bottom
+      GND_5:
+      - GND_5
+      - 39
+      - PASSIVE
+      - bottom
+      GND_6:
+      - GND_6
+      - 41
+      - PASSIVE
+      - bottom
+      GND_7:
+      - GND_7
+      - CP
+      - PASSIVE
+      - bottom
   SUPERCAP:
-    description: "SuperCap >=1.0F, 5.5V, \u6389\u7535\u4FDD\u62A4 eMMC Flush"
+    description: SuperCap >=1.0F, 5.5V, 掉电保护 eMMC Flush
     ref_prefix: C
     value: SUPERCAP_1F
-    footprint: KeyV2_Footprints:KR_5R5V105_R
+    footprint: KeyV2_Footprints:KR_5R5V105_SMD_DNI
     pins:
       POS:
       - POS
@@ -1439,10 +1755,10 @@ symbols:
       - OUTPUT
       - left
   LED_DUAL:
-    description: "\u53CC\u8272 LED \u72B6\u6001\u6307\u793A"
+    description: 双色 LED 状态指示
     ref_prefix: D
     value: LED_DUAL
-    footprint: LED_SMD:LED_0603_1608Metric
+    footprint: LED_SMD:LED_LiteOn_LTST-S326
     pins:
       GREEN_A:
       - GREEN_A
@@ -1549,32 +1865,337 @@ symbols:
       - 2
       - PASSIVE
       - right
+  USB_C_RECEPT_IND:
+    description: Industrial USB Type-C receptacle 24-pin (Amphenol 12401610E4-2A), 4 SS pairs + SBU + CC
+    ref_prefix: J
+    value: USB_C_RECEPT_IND
+    footprint: Connector_USB:USB_C_Receptacle_Amphenol_12401610E4-2A
+    pins:
+      VBUS:
+      - VBUS
+      - A4
+      - PASSIVE
+      - right
+      - 1
+      VBUS_2:
+      - VBUS_2
+      - A9
+      - PASSIVE
+      - right
+      - 1
+      VBUS_3:
+      - VBUS_3
+      - B4
+      - PASSIVE
+      - right
+      - 1
+      VBUS_4:
+      - VBUS_4
+      - B9
+      - PASSIVE
+      - right
+      - 1
+      GND:
+      - GND
+      - A1
+      - PASSIVE
+      - right
+      - 1
+      GND_2:
+      - GND_2
+      - A12
+      - PASSIVE
+      - right
+      - 1
+      GND_3:
+      - GND_3
+      - B1
+      - PASSIVE
+      - right
+      - 1
+      GND_4:
+      - GND_4
+      - B12
+      - PASSIVE
+      - right
+      - 1
+      SHIELD:
+      - SHIELD
+      - SH
+      - PASSIVE
+      - right
+      - 1
+      D_P:
+      - D_P
+      - A6
+      - BI
+      - right
+      - 2
+      D_P_2:
+      - D_P_2
+      - B6
+      - BI
+      - right
+      - 2
+      D_N:
+      - D_N
+      - A7
+      - BI
+      - right
+      - 2
+      D_N_2:
+      - D_N_2
+      - B7
+      - BI
+      - right
+      - 2
+      TX1_P:
+      - TX1_P
+      - A11
+      - BI
+      - right
+      - 2
+      TX1_N:
+      - TX1_N
+      - A10
+      - BI
+      - right
+      - 2
+      RX1_P:
+      - RX1_P
+      - A2
+      - BI
+      - right
+      - 2
+      RX1_N:
+      - RX1_N
+      - A3
+      - BI
+      - right
+      - 2
+      TX2_P:
+      - TX2_P
+      - B11
+      - BI
+      - right
+      - 2
+      TX2_N:
+      - TX2_N
+      - B10
+      - BI
+      - right
+      - 2
+      RX2_P:
+      - RX2_P
+      - B2
+      - BI
+      - right
+      - 2
+      RX2_N:
+      - RX2_N
+      - B3
+      - BI
+      - right
+      - 2
+      CC1:
+      - CC1
+      - A5
+      - PASSIVE
+      - right
+      - 1
+      CC2:
+      - CC2
+      - B5
+      - PASSIVE
+      - right
+      - 1
+      SBU1:
+      - SBU1
+      - A8
+      - BI
+      - right
+      - 2
+      SBU2:
+      - SBU2
+      - B8
+      - PASSIVE
+      - right
+      - 2
+  TPS22919:
+    description: TPS22919 5.5V/1.5A load switch, soft-start, active-high ON (SOT-SC70-6)
+    ref_prefix: U
+    value: TPS22919
+    footprint: Package_TO_SOT_SMD:SOT-363_SC-70-6
+    pins:
+      IN:
+      - IN
+      - 1
+      - PASSIVE
+      - left
+      GND:
+      - GND
+      - 2
+      - PASSIVE
+      - left
+      'ON':
+      - 'ON'
+      - 3
+      - INPUT
+      - right
+      NC:
+      - NC
+      - 4
+      - NC
+      - left
+      QOD:
+      - QOD
+      - 5
+      - PASSIVE
+      - right
+      VOUT:
+      - VOUT
+      - 6
+      - POWER_OUT
+      - right
+  SN74LVC1T45:
+    description: Single-bit dual-supply level translator (1.8V A -> 3.3V B), SOT-23-6
+    ref_prefix: U
+    value: SN74LVC1T45
+    footprint: Package_TO_SOT_SMD:SOT-23-6
+    pins:
+      VCCA:
+      - VCCA
+      - 1
+      - PASSIVE
+      - left
+      GND:
+      - GND
+      - 2
+      - PASSIVE
+      - left
+      A:
+      - A
+      - 3
+      - BI
+      - left
+      B:
+      - B
+      - 4
+      - BI
+      - right
+      VCCB:
+      - VCCB
+      - 5
+      - PASSIVE
+      - right
+      DIR:
+      - DIR
+      - 6
+      - INPUT
+      - right
+  SN74LVC2T45:
+    description: Dual-bit dual-supply level translator (1.8V A -> 3.3V B), VSSOP-8
+    ref_prefix: U
+    value: SN74LVC2T45
+    footprint: Package_SO:VSSOP-8_3x3mm_P0.65mm
+    pins:
+      VCCA:
+      - VCCA
+      - 1
+      - PASSIVE
+      - left
+      A1:
+      - A1
+      - 2
+      - BI
+      - left
+      A2:
+      - A2
+      - 3
+      - BI
+      - left
+      GND:
+      - GND
+      - 4
+      - PASSIVE
+      - left
+      DIR:
+      - DIR
+      - 5
+      - INPUT
+      - right
+      B2:
+      - B2
+      - 6
+      - BI
+      - right
+      B1:
+      - B1
+      - 7
+      - BI
+      - right
+      VCCB:
+      - VCCB
+      - 8
+      - PASSIVE
+      - right
+  CLK_BUF_1TO2:
+    description: Generic 1:2 differential clock buffer placeholder (final part TBD), MSOP-10
+    ref_prefix: U
+    value: CLK_BUF_1TO2
+    footprint: Package_SO:MSOP-10_3x3mm_P0.5mm
+    pins:
+      IN_P:
+      - IN_P
+      - 1
+      - BI
+      - left
+      IN_N:
+      - IN_N
+      - 2
+      - BI
+      - left
+      VDD:
+      - VDD
+      - 3
+      - PASSIVE
+      - left
+      GND:
+      - GND
+      - 4
+      - PASSIVE
+      - left
+      EN:
+      - EN
+      - 5
+      - INPUT
+      - right
+      OUT1_P:
+      - OUT1_P
+      - 6
+      - OUTPUT
+      - right
+      OUT1_N:
+      - OUT1_N
+      - 7
+      - OUTPUT
+      - right
+      OUT2_P:
+      - OUT2_P
+      - 8
+      - OUTPUT
+      - right
+      OUT2_N:
+      - OUT2_N
+      - 9
+      - OUTPUT
+      - right
+      GND_2:
+      - GND_2
+      - 10
+      - PASSIVE
+      - right
 nets:
-  # PWR_5V_MAIN (工作态 5V@3A): 由 K1 DCDC 12V→5V 经 Type-C VBUS 提供 (OI#1);
-  # MCU Enable 门控在 K1 TPS22919 (T8). KEY 侧不设 12V→5V 转换器.
-  VBUS_5V:
-  - J1/VBUS
-  - J1/VBUS_2
-  - J1/VBUS_3
-  - J1/VBUS_4
-  - U1/VIN
-  - U1/VIN2
-  - U1/VIN3
-  - U1/VIN4
-  - U1/VIN5
-  - U1/VIN6
-  - U1/VSYS
-  - U1/ALDOIN
-  - U1/DLDOIN1
-  - U1/DLDOIN2
-  - C11/POS
-  - D3/A1
-  - C5/P1
-  - U4/VBUS
-  - U6/VIN
-  - U6/EN
-  - U5/EN
-  - C27/P1
   LX_BUCK12:
   - U1/BUCK1_LX
   - U1/BUCK2_LX
@@ -1612,11 +2233,12 @@ nets:
   - R9/P2
   - C15/P1
   - C16/P1
+  - U12/VCCA
+  - U13/VCCA
   LX_BUCK4:
   - U1/BUCK4_LX
   - L3/P1
   - C8/P1
-  # VDD_3V3: U4/VCC 已移出 → SE050 核心改挂 3V3_AUX 预鉴权轨 (T6 OI#9)
   VDD_3V3:
   - L3/P2
   - U8/AVDD33_USB
@@ -1641,6 +2263,19 @@ nets:
   - U7/VCC
   - Y2/VCC
   - Y2/EN
+  - U12/VCCB
+  - U12/DIR
+  - U13/VCCB
+  - U13/DIR
+  - U14/VDD
+  - U14/EN
+  - U10/VDD
+  - U10/VDD_2
+  - U10/VDD_3
+  - U10/VDD_4
+  - U10/VDD_5
+  - U10/VDD_6
+  - R46/P2
   LX_BUCK5:
   - U1/BUCK5_LX
   - L4/P1
@@ -1667,7 +2302,6 @@ nets:
   - U8/PWR_SDA
   - U1/SDA
   - R6/P1
-  # FUSB_I2C 并入 AP_I2C2: FUSB302 与 SE050 共享 B1 AP_I2C2 总线 (T6 OI#7)
   I2C2_SCL:
   - U8/AP_I2C2_SCL
   - U2/SCL
@@ -1736,6 +2370,7 @@ nets:
   - U3/DS
   EMMC_RST:
   - U3/RSTn
+  - R46/P1
   EMMC_VDDI:
   - U3/VDDi
   - C24/P1
@@ -1749,10 +2384,6 @@ nets:
   - J1/D_N
   - J1/D_N_2
   - D4/A1
-  # Mode A: B1 USB3_SSTX 经 C2 AC 直连 Type-C (不经 MUX); Mode B: B1 关断 hi-Z (固件须三态 USB3 PHY)
-  # (LOGIC-05 修复: USB3 侧 AC-cap 段网名并入 PCIE_TX0/RX0 基名 — 与 PCIE_TX0/RX0_P_M 同构,
-  #  使 LOGIC-05 跨段合并链可见 J1 端点 (BI 双向 → SKIP); 拓扑/AC 耦合不变; _B = B1 SoC 侧段)
-  # 网名压缩至 ≤9 字符 (PCIE_T0PB 等): Power 页全局 label 与同行固定 GND label 无碰撞 (11 字符差 0.73mm/10 字符差 0.45mm)
   PCIE_T0PB:
   - U8/USB3_SSTX_P
   - C1/P1
@@ -1765,41 +2396,6 @@ nets:
   PCIE_R0NB:
   - U8/USB3_SSRX_N
   - C4/P2
-  # Mode B: M.2 PCIe x2 → PI3DBS16412 → Type-C (T5 MUX 接入)
-  # Mode A: B1 USB3_SSTX/SSRX 经 AC cap (C2/C5/C9/C13) 折叠进 PCIE_TX0/RX0 网 (不经 MUX)
-  PCIE_TX0_P:
-  - J1/TX1_P
-  - C31/P2
-  - C1/P2
-  - D1/A1
-  PCIE_TX0_N:
-  - J1/TX1_N
-  - C35/P2
-  - C2/P2
-  - D2/A1
-  PCIE_TX1_P:
-  - J1/TX2_P
-  - C32/P2
-  PCIE_TX1_N:
-  - J1/TX2_N
-  - C36/P2
-  PCIE_RX0_P:
-  - J1/RX1_P
-  - C33/P2
-  - C3/P1
-  - D6/A1
-  PCIE_RX0_N:
-  - J1/RX1_N
-  - C37/P2
-  - C4/P1
-  - D5/A1
-  PCIE_RX1_P:
-  - J1/RX2_P
-  - C30/P2
-  PCIE_RX1_N:
-  - J1/RX2_N
-  - C34/P2
-  # Mode B: M.2 SSD PCIe x2 → MUX A口 → C口 → Type-C (SEL=1)
   M2_TX0_P:
   - J2/PETp0
   - U9/A0+
@@ -1824,7 +2420,6 @@ nets:
   M2_RX1_N:
   - J2/PERn1
   - U9/A3-
-  # Mode A: B1 PCIEC x2 ↔ M.2 (SEL=0, A↔B)
   PCIEC_RX0_P:
   - U8/PCIEC_RX0P
   - U9/B0+
@@ -1849,67 +2444,12 @@ nets:
   PCIEC_TX1_N:
   - U8/PCIEC_TX1N
   - U9/B3-
-  # MUX C口 → AC cap → J1 (Type-C 侧, AC 耦合)
-  PCIE_TX0_P_M:
-  - C31/P1
-  - U9/C0+
-  PCIE_TX0_N_M:
-  - C35/P1
-  - U9/C0-
-  PCIE_TX1_P_M:
-  - C32/P1
-  - U9/C2+
-  PCIE_TX1_N_M:
-  - C36/P1
-  - U9/C2-
-  PCIE_RX0_P_M:
-  - C33/P1
-  - U9/C1+
-  PCIE_RX0_N_M:
-  - C37/P1
-  - U9/C1-
-  PCIE_RX1_P_M:
-  - C30/P1
-  - U9/C3+
-  PCIE_RX1_N_M:
-  - C34/P1
-  - U9/C3-
-  # MUX 控制 (B1 GPIO 由 T6 接入; GPIO72 @ H1 / GPIO73 @ H2)
-  #   MUX_SEL: Mode A=0 (M.2↔B1), Mode B=1 (M.2↔Type-C)
-  MUX_SEL:
-  - U9/SEL1
-  - U9/SEL2
-  - U8/GPIO72
-  #   MUX_PD: 预鉴权=1 高阻关断 (MUX 输出与 M.2 解耦)
-  MUX_PD:
-  - U9/PD1
-  - U9/PD2
-  - U8/GPIO73
-  # REFCLK (差分, P/N 分开) — SRIS 本地时钟 (OI#2): Y2 XO 驱动 REFCLKp,
-  # REFCLKn 单端悬置, C35 AC 接地 (SSC-Off 为固件决策, 不写死为电路)
-  REFCLK_100M_P:
-  - J2/REFCLKp
-  - Y2/OUT
-  REFCLK_100M_N:
-  - J2/REFCLKn
-  - C26/P1
-  # 边带 (B1 GPIO 由 T6 决策)
-  #   PERST#: B1 GPIO54 (PCIE0_PERSTN @ B5) 鉴权通过释放, OI#3
-  PERST#_SSD:
-  - J2/PERST#
-  - U8/PCIE0_PERSTN
-  M2_CLKREQ:
-  - J2/CLKREQ#
-  M2_PEWAKE:
-  - J2/PEWAKE#
-  # M.2 边带 (ECO #31 T6): PEDET 100K 上拉 M2_3V3 (卡在位检测), DEVSLP 100K 下拉 GND (休眠禁用)
   M2_PEDET:
   - J2/PEDET
   - R17/P1
   M2_DEVSLP:
   - J2/DEVSLP
   - R18/P1
-  # M.2 供电 (双轨电源由 T6 接入)
   M2_3V3:
   - J2/3V3
   - J2/3V3_2
@@ -1921,22 +2461,18 @@ nets:
   - J2/3V3_8
   - J2/3V3_9
   - R17/P2
-  # ── 预鉴权电源链 (T6, OI#9 双轨: S5 预鉴权 TLV61046 + 工作态 K1 DCDC) ──
-  # VBUS_5V → U9 LDO → 3V3_AUX → U5 TLV61046 boost → PWR_5V_PREAUTH
-  # 3V3_AUX 是预鉴权链中间节点 (非消费轨): SE050 核心 (U4/VCC) 改挂此处
   3V3_AUX:
   - U5/VIN
   - U6/VOUT
   - U2/VCC
   - L6/P1
   - C29/P1
-  # 升压开关节点: L6 → SW, D9/A1 阳极接开关节点 (BAT54C 整流, A1=SW 侧)
+  - R42/P2
+  - R43/P2
   LX_PREAUTH:
   - L6/P2
   - U5/SW
   - D9/A1
-  # 预鉴权 5V 输出: VOUT 经 D9 共阴极 (K) 整流; SE050 VIN/ENA 挂此轨
-  # (运行态 VBUS 5V@3A 由 K1 DCDC 提供, 此轨仅预鉴权 <50mA)
   PWR_5V_PREAUTH:
   - U5/VOUT
   - D9/K
@@ -1944,7 +2480,6 @@ nets:
   - U2/ENA
   - C28/P1
   - R10/P2
-  # FB 分压 (5V: 100k/11k): R15 上臂 → 输出, R16 下臂 → GND
   FB_PREAUTH:
   - R10/P1
   - U5/FB
@@ -1958,37 +2493,39 @@ nets:
   SBU1_DET:
   - U8/GPIO00
   - R12/P1
-  # Mode B 预鉴权: SBU → U6 TS3USB221A → SE050 I2C (T6 接入)
-  #   预鉴权 (OE#=0, SEL=0): SBU↔SE050 导通, 仅 SEC 响应 SBU-I2C
-  #   运行态 (OE#=1): 隔离防双 Master 竞争 (B1 AP_I2C2 与 SBU 侧均不串扰)
   SBU_I2C_SCL:
   - J1/SBU1
   - U7/D_P_A
+  - R42/P1
+  - D12/A1
   SBU_I2C_SDA:
   - J1/SBU2
   - U7/D_N_A
+  - R43/P1
+  - D13/A1
   CC1:
   - J1/CC1
   - R1/P1
   - U4/CC1
   - U4/CC1_2
-  # VDM: FUSB302 (T6 接入) — 检测 Rp/Rd, BMC PD 协商
+  - D10/A1
   CC2:
   - J1/CC2
   - R2/P1
   - U4/CC2
   - U4/CC2_2
-  # FUSB302 INT_N 开漏低有效中断 (T6, GPIO74 @ H3)
+  - D11/A1
   FUSB_INT#:
   - U4/INT_N
   - U8/GPIO74
-  # U6 TS3USB221A SBU 隔离控制 (T6)
   SBU_SEL:
   - U7/SEL
   - U8/GPIO37
+  - R40/P1
   SBU_EN:
   - U7/OE#
   - U8/GPIO79
+  - R41/P1
   STATUS_LED:
   - U8/GPIO01
   - D8/GREEN_A
@@ -2086,7 +2623,6 @@ nets:
   - U9/GND_5
   - U9/GND_6
   - U9/GND_7
-  # T6 预鉴权链/VDM/XO GND
   - U5/GND
   - U7/GND
   - U4/GND
@@ -2099,6 +2635,194 @@ nets:
   - C28/P2
   - R11/P2
   - R18/P2
+  - U12/GND
+  - U13/GND
+  - U14/GND
+  - U14/GND_2
+  - U11/GND
+  - U10/GND
+  - U10/GND_2
+  - U10/GND_3
+  - U10/GND_4
+  - U10/GND_5
+  - U10/GND_6
+  - U10/GND_7
+  - C38/P2
+  - R40/P2
+  - R41/P2
+  - R44/P2
+  - R45/P2
+  - D10/A2
+  - D11/A2
+  - D12/A2
+  - D13/A2
+  - J1/SHIELD
+  VBUS_IN:
+  - J1/VBUS
+  - J1/VBUS_2
+  - J1/VBUS_3
+  - J1/VBUS_4
+  - U11/IN
+  - U6/VIN
+  - U6/EN
+  - U5/EN
+  - U4/VBUS
+  - D3/A1
+  - C5/P1
+  PWR_5V_WORK:
+  - U11/VOUT
+  - U1/VIN
+  - U1/VIN2
+  - U1/VIN3
+  - U1/VIN4
+  - U1/VIN5
+  - U1/VIN6
+  - U1/VSYS
+  - U1/ALDOIN
+  - U1/DLDOIN1
+  - U1/DLDOIN2
+  - C27/P1
+  - C11/POS
+  PWR_EN:
+  - U11/ON
+  - U2/AUTH_OK
+  - R44/P1
+  ORI_SEL_B1:
+  - U8/GPIO88
+  - U13/A1
+  ORI_PD_B1:
+  - U8/GPIO89
+  - U13/A2
+  ORI_SEL:
+  - U13/B1
+  - U10/SEL1
+  - U10/SEL2
+  ORI_PD:
+  - U13/B2
+  - U10/PD1
+  - U10/PD2
+  PCIE_TC_TX0_P:
+  - J1/TX1_N
+  - C31/P2
+  - C1/P2
+  - D1/A1
+  PCIE_TC_TX0_N:
+  - J1/TX1_P
+  - C35/P2
+  - C2/P2
+  - D2/A1
+  PCIE_TC_TX1_P:
+  - J1/TX2_P
+  - C32/P2
+  PCIE_TC_TX1_N:
+  - J1/TX2_N
+  - C36/P2
+  PCIE_TC_RX0_P:
+  - J1/RX1_P
+  - C33/P2
+  - C3/P1
+  - D6/A1
+  PCIE_TC_RX0_N:
+  - J1/RX1_N
+  - C37/P2
+  - C4/P1
+  - D5/A1
+  PCIE_TC_RX1_P:
+  - J1/RX2_N
+  - C30/P2
+  PCIE_TC_RX1_N:
+  - J1/RX2_P
+  - C34/P2
+  PCIE_S1_TX0_P:
+  - U9/C0+
+  - U10/A0+
+  PCIE_S1_TX0_N:
+  - U9/C0-
+  - U10/A0-
+  PCIE_S1_RX0_P:
+  - U9/C1+
+  - U10/A1+
+  PCIE_S1_RX0_N:
+  - U9/C1-
+  - U10/A1-
+  PCIE_S1_TX1_P:
+  - U9/C2+
+  - U10/A2+
+  PCIE_S1_TX1_N:
+  - U9/C2-
+  - U10/A2-
+  PCIE_S1_RX1_P:
+  - U9/C3+
+  - U10/A3+
+  PCIE_S1_RX1_N:
+  - U9/C3-
+  - U10/A3-
+  PCIE_S2_TX0_P:
+  - U10/B0+
+  - U10/C2+
+  - C31/P1
+  PCIE_S2_TX0_N:
+  - U10/B0-
+  - U10/C2-
+  - C35/P1
+  PCIE_S2_RX0_P:
+  - U10/B1+
+  - U10/C3+
+  - C33/P1
+  PCIE_S2_RX0_N:
+  - U10/B1-
+  - U10/C3-
+  - C37/P1
+  PCIE_S2_TX1_P:
+  - U10/B2+
+  - U10/C0+
+  - C32/P1
+  PCIE_S2_TX1_N:
+  - U10/B2-
+  - U10/C0-
+  - C36/P1
+  PCIE_S2_RX1_P:
+  - U10/B3+
+  - U10/C1+
+  - C30/P1
+  PCIE_S2_RX1_N:
+  - U10/B3-
+  - U10/C1-
+  - C34/P1
+  PERST#_B1:
+  - U8/PCIE0_PERSTN
+  - U12/A
+  PERST#_SSD:
+  - U12/B
+  - J2/PERST#
+  - R45/P1
+  REFCLK_XO:
+  - Y2/OUT
+  - U14/IN_P
+  REFCLK_XO_N:
+  - U14/IN_N
+  - C38/P1
+  REFCLK_100M_P:
+  - U14/OUT1_P
+  - J2/REFCLKp
+  REFCLK_100M_N:
+  - U14/OUT1_N
+  - J2/REFCLKn
+  - C26/P1
+  REFCLK_B1_P:
+  - U14/OUT2_P
+  - U8/PCIEC_REFCLK_P
+  REFCLK_B1_N:
+  - U14/OUT2_N
+  - U8/PCIEC_REFCLK_N
+  MUX_SEL:
+  - U9/SEL1
+  - U9/SEL2
+  - U8/GPIO72
+  MUX_PD:
+  - U9/PD1
+  - U9/PD2
+  - U8/GPIO73
 nc:
 - - U1
   - ALDO1_OUT
@@ -2144,10 +2868,6 @@ nc:
   - PCIEB_TX1N
 - - U8
   - PCIEB_TX1P
-- - U8
-  - PCIEC_REFCLK_N
-- - U8
-  - PCIEC_REFCLK_P
 - - U9
   - NC
 - - U9
@@ -2160,7 +2880,7 @@ sheets:
     - 420.0
     placements:
       J1:
-        symbol: USB_C_RECEPT_24
+        symbol: USB_C_RECEPT_IND
         x: 90
         y: 150
         rotation: 0
@@ -2403,6 +3123,34 @@ sheets:
         y: 130
         rotation: 0
         unit_column: 3
+      U11:
+        symbol: TPS22919
+        x: 420
+        y: 300
+        rotation: 0
+        nc:
+        - NC
+        - QOD
+      D10:
+        symbol: TVS_BIDIR
+        x: 45
+        y: 210
+        rotation: 0
+      D11:
+        symbol: TVS_BIDIR
+        x: 45
+        y: 230
+        rotation: 0
+      D12:
+        symbol: TVS_BIDIR
+        x: 45
+        y: 260
+        rotation: 0
+      D13:
+        symbol: TVS_BIDIR
+        x: 45
+        y: 280
+        rotation: 0
   Main (B1 + eMMC + SE050 + Debug):
     filename: key_v2_main.kicad_sch
     size:
@@ -2515,10 +3263,13 @@ sheets:
         x: 230
         y: 60
         rotation: 0
+        nc:
+        - CLKREQ#
+        - PEWAKE#
       U9:
         symbol: PI3DBS16412
         x: 530
-        y: 160
+        y: 110
         rotation: 0
       C31:
         symbol: CAP_0402
@@ -2568,7 +3319,6 @@ sheets:
         y: 360
         rotation: 0
         value: 100nF
-      # ── T6 预鉴权链 / VDM / XO (Main 页空位, 碰撞迭代后定稿) ──
       U5:
         symbol: DCDC_12V_3V3
         x: 250
@@ -2605,6 +3355,8 @@ sheets:
         x: 295
         y: 280
         rotation: 0
+        nc:
+        - A2
       R10:
         symbol: RES_0402
         x: 205
@@ -2653,3 +3405,74 @@ sheets:
         y: 290
         rotation: 0
         value: 10uF
+      U10:
+        symbol: PI3DBS16412
+        x: 310
+        y: 135
+        rotation: 0
+        nc:
+        - NC
+        - NC_2
+      U12:
+        symbol: SN74LVC1T45
+        x: 350
+        y: 350
+        rotation: 0
+      U13:
+        symbol: SN74LVC2T45
+        x: 300
+        y: 360
+        rotation: 0
+      U14:
+        symbol: CLK_BUF_1TO2
+        x: 120
+        y: 180
+        rotation: 0
+      R40:
+        symbol: RES_0402
+        x: 240
+        y: 110
+        rotation: 0
+        value: 10K
+      R41:
+        symbol: RES_0402
+        x: 240
+        y: 130
+        rotation: 0
+        value: 10K
+      R42:
+        symbol: RES_0402
+        x: 240
+        y: 150
+        rotation: 0
+        value: 10K
+      R43:
+        symbol: RES_0402
+        x: 240
+        y: 170
+        rotation: 0
+        value: 10K
+      R44:
+        symbol: RES_0402
+        x: 80
+        y: 370
+        rotation: 0
+        value: 10K
+      R45:
+        symbol: RES_0402
+        x: 150
+        y: 370
+        rotation: 0
+        value: 10K
+      C38:
+        symbol: CAP_0402
+        x: 160
+        y: 150
+        rotation: 0
+        value: 100nF
+      R46:
+        symbol: RES_0402
+        x: 190
+        y: 125
+        rotation: 0
+        value: 10K

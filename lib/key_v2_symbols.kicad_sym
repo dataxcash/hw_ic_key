@@ -116,9 +116,9 @@
   					)
   				)
   				(pin passive line
-  					(at 8.89 0 180)
+  					(at -8.89 -1.27 0)
   					(length 2.54)
-  					(name "K"
+  					(name "A2"
   						(effects
   							(font
   								(size 1.27 1.27)
@@ -134,9 +134,9 @@
   					)
   				)
   				(pin passive line
-  					(at -8.89 -1.27 0)
+  					(at 8.89 0 180)
   					(length 2.54)
-  					(name "A2"
+  					(name "K"
   						(effects
   							(font
   								(size 1.27 1.27)
@@ -281,6 +281,263 @@
   						)
   					)
   					(number "2"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  				)
+  			)
+  			(embedded_fonts no)
+  		)
+  (symbol "ForgeOS:CLK_BUF_1TO2"
+  			(pin_names
+  				(offset 1.016)
+  			)
+  			(exclude_from_sim no)
+  			(in_bom yes)
+  			(on_board yes)
+  			(in_pos_files yes)
+  			(duplicate_pin_numbers_are_jumpers no)
+  			(property "Reference" "U?"
+  				(at 0 11.43 0)
+  				(show_name no)
+  				(do_not_autoplace no)
+  				(effects
+  					(font
+  						(size 1.27 1.27)
+  					)
+  				)
+  			)
+  			(property "Value" "CLK_BUF_1TO2"
+  				(at 0 -11.43 0)
+  				(show_name no)
+  				(do_not_autoplace no)
+  				(effects
+  					(font
+  						(size 1.27 1.27)
+  					)
+  				)
+  			)
+  			(property "Footprint" "Package_SO:MSOP-10_3x3mm_P0.5mm"
+  				(at 0 0 0)
+  				(show_name no)
+  				(do_not_autoplace no)
+  				(hide yes)
+  				(effects
+  					(font
+  						(size 1.27 1.27)
+  					)
+  				)
+  			)
+  			(property "Datasheet" ""
+  				(at 0 0 0)
+  				(show_name no)
+  				(do_not_autoplace no)
+  				(hide yes)
+  				(effects
+  					(font
+  						(size 1.27 1.27)
+  					)
+  				)
+  			)
+  			(property "Description" ""
+  				(at 0 0 0)
+  				(show_name no)
+  				(do_not_autoplace no)
+  				(hide yes)
+  				(effects
+  					(font
+  						(size 1.27 1.27)
+  					)
+  				)
+  			)
+  			(symbol "CLK_BUF_1TO2_1_1"
+  				(rectangle
+  					(start -8.89 -8.89)
+  					(end 8.89 8.89)
+  					(stroke
+  						(width 0.254)
+  						(type default)
+  					)
+  					(fill
+  						(type background)
+  					)
+  				)
+  				(pin bidirectional line
+  					(at -11.43 3.81 0)
+  					(length 2.54)
+  					(name "IN_P"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  					(number "1"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  				)
+  				(pin bidirectional line
+  					(at -11.43 1.27 0)
+  					(length 2.54)
+  					(name "IN_N"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  					(number "2"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  				)
+  				(pin passive line
+  					(at -11.43 -1.27 0)
+  					(length 2.54)
+  					(name "VDD"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  					(number "3"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  				)
+  				(pin passive line
+  					(at -11.43 -3.81 0)
+  					(length 2.54)
+  					(name "GND"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  					(number "4"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  				)
+  				(pin input line
+  					(at 11.43 6.35 180)
+  					(length 2.54)
+  					(name "EN"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  					(number "5"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  				)
+  				(pin output line
+  					(at 11.43 3.81 180)
+  					(length 2.54)
+  					(name "OUT1_P"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  					(number "6"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  				)
+  				(pin output line
+  					(at 11.43 1.27 180)
+  					(length 2.54)
+  					(name "OUT1_N"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  					(number "7"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  				)
+  				(pin output line
+  					(at 11.43 -1.27 180)
+  					(length 2.54)
+  					(name "OUT2_P"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  					(number "8"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  				)
+  				(pin output line
+  					(at 11.43 -3.81 180)
+  					(length 2.54)
+  					(name "OUT2_N"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  					(number "9"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  				)
+  				(pin passive line
+  					(at 11.43 -6.35 180)
+  					(length 2.54)
+  					(name "GND_2"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  					(number "10"
   						(effects
   							(font
   								(size 1.27 1.27)
@@ -1834,7 +2091,7 @@
   					)
   				)
   			)
-  			(property "Footprint" "LED_SMD:LED_0603_1608Metric"
+  			(property "Footprint" "LED_SMD:LED_LiteOn_LTST-S326"
   				(at 0 0 0)
   				(show_name no)
   				(do_not_autoplace no)
@@ -1979,7 +2236,7 @@
   					)
   				)
   			)
-  			(property "Value" "M2_M_SOCKET"
+  			(property "Value" "M2_M_SOCKET_2230_ONLY"
   				(at 0 -33.02 0)
   				(show_name no)
   				(do_not_autoplace no)
@@ -1989,7 +2246,7 @@
   					)
   				)
   			)
-  			(property "Footprint" "KeyV2_Footprints:M2_M_SOCKET"
+  			(property "Footprint" "KeyV2_Footprints:M2_M_SOCKET_2230_ONLY"
   				(at 0 0 0)
   				(show_name no)
   				(do_not_autoplace no)
@@ -3601,7 +3858,7 @@
   					)
   				)
   			)
-  			(property "Footprint" "KeyV2_Footprints:PMIC_P1_QFN60"
+  			(property "Footprint" "Package_DFN_QFN:QFN-60-1EP_7x7mm_P0.4mm_EP3.4x3.4mm"
   				(at 0 0 0)
   				(show_name no)
   				(do_not_autoplace no)
@@ -4373,8 +4630,8 @@
   			)
   			(symbol "SE050_1_1"
   				(rectangle
-  					(start -6.35 -8.89)
-  					(end 6.35 8.89)
+  					(start -11.43 -8.89)
+  					(end 11.43 8.89)
   					(stroke
   						(width 0.254)
   						(type default)
@@ -4384,7 +4641,7 @@
   					)
   				)
   				(pin bidirectional line
-  					(at -8.89 1.27 0)
+  					(at -13.97 1.27 0)
   					(length 2.54)
   					(name "SDA"
   						(effects
@@ -4402,7 +4659,7 @@
   					)
   				)
   				(pin bidirectional line
-  					(at -8.89 3.81 0)
+  					(at -13.97 3.81 0)
   					(length 2.54)
   					(name "SCL"
   						(effects
@@ -4420,7 +4677,7 @@
   					)
   				)
   				(pin passive line
-  					(at -8.89 -3.81 0)
+  					(at -13.97 -3.81 0)
   					(length 2.54)
   					(name "ENA"
   						(effects
@@ -4438,7 +4695,7 @@
   					)
   				)
   				(pin passive line
-  					(at -8.89 -6.35 0)
+  					(at -13.97 -6.35 0)
   					(length 2.54)
   					(name "VIN"
   						(effects
@@ -4456,7 +4713,7 @@
   					)
   				)
   				(pin passive line
-  					(at -8.89 -1.27 0)
+  					(at -13.97 -1.27 0)
   					(length 2.54)
   					(name "nRESET"
   						(effects
@@ -4473,8 +4730,26 @@
   						)
   					)
   				)
+  				(pin output line
+  					(at 13.97 0 180)
+  					(length 2.54)
+  					(name "AUTH_OK"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  					(number "16"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  				)
   				(pin passive line
-  					(at -8.89 6.35 0)
+  					(at -13.97 6.35 0)
   					(length 2.54)
   					(name "VCC"
   						(effects
@@ -4502,6 +4777,412 @@
   						)
   					)
   					(number "19"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  				)
+  			)
+  			(embedded_fonts no)
+  		)
+  (symbol "ForgeOS:SN74LVC1T45"
+  			(pin_names
+  				(offset 1.016)
+  			)
+  			(exclude_from_sim no)
+  			(in_bom yes)
+  			(on_board yes)
+  			(in_pos_files yes)
+  			(duplicate_pin_numbers_are_jumpers no)
+  			(property "Reference" "U?"
+  				(at 0 7.62 0)
+  				(show_name no)
+  				(do_not_autoplace no)
+  				(effects
+  					(font
+  						(size 1.27 1.27)
+  					)
+  				)
+  			)
+  			(property "Value" "SN74LVC1T45"
+  				(at 0 -7.62 0)
+  				(show_name no)
+  				(do_not_autoplace no)
+  				(effects
+  					(font
+  						(size 1.27 1.27)
+  					)
+  				)
+  			)
+  			(property "Footprint" "Package_TO_SOT_SMD:SOT-23-6"
+  				(at 0 0 0)
+  				(show_name no)
+  				(do_not_autoplace no)
+  				(hide yes)
+  				(effects
+  					(font
+  						(size 1.27 1.27)
+  					)
+  				)
+  			)
+  			(property "Datasheet" ""
+  				(at 0 0 0)
+  				(show_name no)
+  				(do_not_autoplace no)
+  				(hide yes)
+  				(effects
+  					(font
+  						(size 1.27 1.27)
+  					)
+  				)
+  			)
+  			(property "Description" ""
+  				(at 0 0 0)
+  				(show_name no)
+  				(do_not_autoplace no)
+  				(hide yes)
+  				(effects
+  					(font
+  						(size 1.27 1.27)
+  					)
+  				)
+  			)
+  			(symbol "SN74LVC1T45_1_1"
+  				(rectangle
+  					(start -7.62 -5.08)
+  					(end 7.62 5.08)
+  					(stroke
+  						(width 0.254)
+  						(type default)
+  					)
+  					(fill
+  						(type background)
+  					)
+  				)
+  				(pin passive line
+  					(at -10.16 2.54 0)
+  					(length 2.54)
+  					(name "VCCA"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  					(number "1"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  				)
+  				(pin passive line
+  					(at -10.16 0 0)
+  					(length 2.54)
+  					(name "GND"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  					(number "2"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  				)
+  				(pin bidirectional line
+  					(at -10.16 -2.54 0)
+  					(length 2.54)
+  					(name "A"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  					(number "3"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  				)
+  				(pin bidirectional line
+  					(at 10.16 2.54 180)
+  					(length 2.54)
+  					(name "B"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  					(number "4"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  				)
+  				(pin passive line
+  					(at 10.16 0 180)
+  					(length 2.54)
+  					(name "VCCB"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  					(number "5"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  				)
+  				(pin input line
+  					(at 10.16 -2.54 180)
+  					(length 2.54)
+  					(name "DIR"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  					(number "6"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  				)
+  			)
+  			(embedded_fonts no)
+  		)
+  (symbol "ForgeOS:SN74LVC2T45"
+  			(pin_names
+  				(offset 1.016)
+  			)
+  			(exclude_from_sim no)
+  			(in_bom yes)
+  			(on_board yes)
+  			(in_pos_files yes)
+  			(duplicate_pin_numbers_are_jumpers no)
+  			(property "Reference" "U?"
+  				(at 0 8.89 0)
+  				(show_name no)
+  				(do_not_autoplace no)
+  				(effects
+  					(font
+  						(size 1.27 1.27)
+  					)
+  				)
+  			)
+  			(property "Value" "SN74LVC2T45"
+  				(at 0 -8.89 0)
+  				(show_name no)
+  				(do_not_autoplace no)
+  				(effects
+  					(font
+  						(size 1.27 1.27)
+  					)
+  				)
+  			)
+  			(property "Footprint" "Package_SO:VSSOP-8_3x3mm_P0.65mm"
+  				(at 0 0 0)
+  				(show_name no)
+  				(do_not_autoplace no)
+  				(hide yes)
+  				(effects
+  					(font
+  						(size 1.27 1.27)
+  					)
+  				)
+  			)
+  			(property "Datasheet" ""
+  				(at 0 0 0)
+  				(show_name no)
+  				(do_not_autoplace no)
+  				(hide yes)
+  				(effects
+  					(font
+  						(size 1.27 1.27)
+  					)
+  				)
+  			)
+  			(property "Description" ""
+  				(at 0 0 0)
+  				(show_name no)
+  				(do_not_autoplace no)
+  				(hide yes)
+  				(effects
+  					(font
+  						(size 1.27 1.27)
+  					)
+  				)
+  			)
+  			(symbol "SN74LVC2T45_1_1"
+  				(rectangle
+  					(start -7.62 -6.35)
+  					(end 7.62 6.35)
+  					(stroke
+  						(width 0.254)
+  						(type default)
+  					)
+  					(fill
+  						(type background)
+  					)
+  				)
+  				(pin passive line
+  					(at -10.16 3.81 0)
+  					(length 2.54)
+  					(name "VCCA"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  					(number "1"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  				)
+  				(pin bidirectional line
+  					(at -10.16 1.27 0)
+  					(length 2.54)
+  					(name "A1"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  					(number "2"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  				)
+  				(pin bidirectional line
+  					(at -10.16 -1.27 0)
+  					(length 2.54)
+  					(name "A2"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  					(number "3"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  				)
+  				(pin passive line
+  					(at -10.16 -3.81 0)
+  					(length 2.54)
+  					(name "GND"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  					(number "4"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  				)
+  				(pin input line
+  					(at 10.16 3.81 180)
+  					(length 2.54)
+  					(name "DIR"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  					(number "5"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  				)
+  				(pin bidirectional line
+  					(at 10.16 1.27 180)
+  					(length 2.54)
+  					(name "B2"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  					(number "6"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  				)
+  				(pin bidirectional line
+  					(at 10.16 -1.27 180)
+  					(length 2.54)
+  					(name "B1"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  					(number "7"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  				)
+  				(pin passive line
+  					(at 10.16 -3.81 180)
+  					(length 2.54)
+  					(name "VCCB"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  					(number "8"
   						(effects
   							(font
   								(size 1.27 1.27)
@@ -5227,8 +5908,8 @@
   			)
   			(symbol "SOM_B1_4_1"
   				(rectangle
-  					(start -55.88 -10.16)
-  					(end 55.88 10.16)
+  					(start -58.42 -10.16)
+  					(end 58.42 10.16)
   					(stroke
   						(width 0.254)
   						(type default)
@@ -5238,7 +5919,7 @@
   					)
   				)
   				(pin passive line
-  					(at 52.07 -12.7 90)
+  					(at 49.53 -12.7 90)
   					(length 2.54)
   					(name "VSS"
   						(effects
@@ -5256,7 +5937,7 @@
   					)
   				)
   				(pin input line
-  					(at 49.53 -12.7 90)
+  					(at 46.99 -12.7 90)
   					(length 2.54)
   					(name "JTAG_SEL"
   						(effects
@@ -5274,7 +5955,7 @@
   					)
   				)
   				(pin output line
-  					(at 13.97 -12.7 90)
+  					(at 11.43 -12.7 90)
   					(length 2.54)
   					(name "EMMC_CLK"
   						(effects
@@ -5292,7 +5973,7 @@
   					)
   				)
   				(pin input line
-  					(at 39.37 -12.7 90)
+  					(at 36.83 -12.7 90)
   					(length 2.54)
   					(name "EMMC_DS"
   						(effects
@@ -5310,7 +5991,7 @@
   					)
   				)
   				(pin bidirectional line
-  					(at 8.89 -12.7 90)
+  					(at 6.35 -12.7 90)
   					(length 2.54)
   					(name "GPIO37"
   						(effects
@@ -5328,7 +6009,7 @@
   					)
   				)
   				(pin bidirectional line
-  					(at 11.43 -12.7 90)
+  					(at 8.89 -12.7 90)
   					(length 2.54)
   					(name "GPIO79"
   						(effects
@@ -5345,8 +6026,26 @@
   						)
   					)
   				)
+  				(pin bidirectional line
+  					(at 54.61 -12.7 90)
+  					(length 2.54)
+  					(name "GPIO89"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  					(number "B1"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  				)
   				(pin output line
-  					(at -1.27 -12.7 90)
+  					(at -3.81 -12.7 90)
   					(length 2.54)
   					(name "PCIE0_PERSTN"
   						(effects
@@ -5364,7 +6063,7 @@
   					)
   				)
   				(pin bidirectional line
-  					(at 36.83 -12.7 90)
+  					(at 34.29 -12.7 90)
   					(length 2.54)
   					(name "EMMC_D7"
   						(effects
@@ -5382,7 +6081,7 @@
   					)
   				)
   				(pin bidirectional line
-  					(at 34.29 -12.7 90)
+  					(at 31.75 -12.7 90)
   					(length 2.54)
   					(name "EMMC_D6"
   						(effects
@@ -5400,7 +6099,7 @@
   					)
   				)
   				(pin bidirectional line
-  					(at 24.13 -12.7 90)
+  					(at 21.59 -12.7 90)
   					(length 2.54)
   					(name "EMMC_D2"
   						(effects
@@ -5418,7 +6117,25 @@
   					)
   				)
   				(pin bidirectional line
-  					(at 21.59 -12.7 90)
+  					(at 52.07 -12.7 90)
+  					(length 2.54)
+  					(name "GPIO88"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  					(number "C3"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  				)
+  				(pin bidirectional line
+  					(at 19.05 -12.7 90)
   					(length 2.54)
   					(name "EMMC_D1"
   						(effects
@@ -5436,7 +6153,7 @@
   					)
   				)
   				(pin bidirectional line
-  					(at 31.75 -12.7 90)
+  					(at 29.21 -12.7 90)
   					(length 2.54)
   					(name "EMMC_D5"
   						(effects
@@ -5454,7 +6171,7 @@
   					)
   				)
   				(pin bidirectional line
-  					(at 19.05 -12.7 90)
+  					(at 16.51 -12.7 90)
   					(length 2.54)
   					(name "EMMC_D0"
   						(effects
@@ -5472,7 +6189,7 @@
   					)
   				)
   				(pin bidirectional line
-  					(at 29.21 -12.7 90)
+  					(at 26.67 -12.7 90)
   					(length 2.54)
   					(name "EMMC_D4"
   						(effects
@@ -5490,7 +6207,7 @@
   					)
   				)
   				(pin bidirectional line
-  					(at 26.67 -12.7 90)
+  					(at 24.13 -12.7 90)
   					(length 2.54)
   					(name "EMMC_D3"
   						(effects
@@ -5508,7 +6225,7 @@
   					)
   				)
   				(pin bidirectional line
-  					(at 16.51 -12.7 90)
+  					(at 13.97 -12.7 90)
   					(length 2.54)
   					(name "EMMC_CMD"
   						(effects
@@ -5526,7 +6243,7 @@
   					)
   				)
   				(pin input line
-  					(at 46.99 -12.7 90)
+  					(at 44.45 -12.7 90)
   					(length 2.54)
   					(name "GPIO90"
   						(effects
@@ -5544,7 +6261,7 @@
   					)
   				)
   				(pin input line
-  					(at 44.45 -12.7 90)
+  					(at 41.91 -12.7 90)
   					(length 2.54)
   					(name "QSPI_DAT3"
   						(effects
@@ -5562,7 +6279,7 @@
   					)
   				)
   				(pin input line
-  					(at 41.91 -12.7 90)
+  					(at 39.37 -12.7 90)
   					(length 2.54)
   					(name "QSPI_DAT2"
   						(effects
@@ -5580,7 +6297,7 @@
   					)
   				)
   				(pin output line
-  					(at -11.43 -12.7 90)
+  					(at -13.97 -12.7 90)
   					(length 2.54)
   					(name "PCIEC_TX1P"
   						(effects
@@ -5598,7 +6315,7 @@
   					)
   				)
   				(pin output line
-  					(at -8.89 -12.7 90)
+  					(at -11.43 -12.7 90)
   					(length 2.54)
   					(name "PCIEC_TX1N"
   						(effects
@@ -5616,7 +6333,7 @@
   					)
   				)
   				(pin bidirectional line
-  					(at 1.27 -12.7 90)
+  					(at -1.27 -12.7 90)
   					(length 2.54)
   					(name "GPIO72"
   						(effects
@@ -5634,7 +6351,7 @@
   					)
   				)
   				(pin bidirectional line
-  					(at 3.81 -12.7 90)
+  					(at 1.27 -12.7 90)
   					(length 2.54)
   					(name "GPIO73"
   						(effects
@@ -5652,7 +6369,7 @@
   					)
   				)
   				(pin bidirectional line
-  					(at 6.35 -12.7 90)
+  					(at 3.81 -12.7 90)
   					(length 2.54)
   					(name "GPIO74"
   						(effects
@@ -5670,7 +6387,7 @@
   					)
   				)
   				(pin output line
-  					(at -21.59 -12.7 90)
+  					(at -24.13 -12.7 90)
   					(length 2.54)
   					(name "PCIEC_TX0P"
   						(effects
@@ -5688,7 +6405,7 @@
   					)
   				)
   				(pin output line
-  					(at -19.05 -12.7 90)
+  					(at -21.59 -12.7 90)
   					(length 2.54)
   					(name "PCIEC_TX0N"
   						(effects
@@ -5706,7 +6423,7 @@
   					)
   				)
   				(pin input line
-  					(at -6.35 -12.7 90)
+  					(at -8.89 -12.7 90)
   					(length 2.54)
   					(name "PCIEC_RX1P"
   						(effects
@@ -5724,7 +6441,7 @@
   					)
   				)
   				(pin input line
-  					(at -3.81 -12.7 90)
+  					(at -6.35 -12.7 90)
   					(length 2.54)
   					(name "PCIEC_RX1N"
   						(effects
@@ -5742,7 +6459,7 @@
   					)
   				)
   				(pin input line
-  					(at -16.51 -12.7 90)
+  					(at -19.05 -12.7 90)
   					(length 2.54)
   					(name "PCIEC_RX0P"
   						(effects
@@ -5760,7 +6477,7 @@
   					)
   				)
   				(pin input line
-  					(at -13.97 -12.7 90)
+  					(at -16.51 -12.7 90)
   					(length 2.54)
   					(name "PCIEC_RX0N"
   						(effects
@@ -5778,7 +6495,7 @@
   					)
   				)
   				(pin bidirectional line
-  					(at -26.67 -12.7 90)
+  					(at -29.21 -12.7 90)
   					(length 2.54)
   					(name "PCIEC_REFCLK_P"
   						(effects
@@ -5796,7 +6513,7 @@
   					)
   				)
   				(pin bidirectional line
-  					(at -24.13 -12.7 90)
+  					(at -26.67 -12.7 90)
   					(length 2.54)
   					(name "PCIEC_REFCLK_N"
   						(effects
@@ -5814,7 +6531,7 @@
   					)
   				)
   				(pin output line
-  					(at -36.83 -12.7 90)
+  					(at -39.37 -12.7 90)
   					(length 2.54)
   					(name "PCIEB_TX1P"
   						(effects
@@ -5832,7 +6549,7 @@
   					)
   				)
   				(pin output line
-  					(at -34.29 -12.7 90)
+  					(at -36.83 -12.7 90)
   					(length 2.54)
   					(name "PCIEB_TX1N"
   						(effects
@@ -5850,7 +6567,7 @@
   					)
   				)
   				(pin output line
-  					(at -46.99 -12.7 90)
+  					(at -49.53 -12.7 90)
   					(length 2.54)
   					(name "PCIEB_TX0P"
   						(effects
@@ -5868,7 +6585,7 @@
   					)
   				)
   				(pin output line
-  					(at -44.45 -12.7 90)
+  					(at -46.99 -12.7 90)
   					(length 2.54)
   					(name "PCIEB_TX0N"
   						(effects
@@ -5886,7 +6603,7 @@
   					)
   				)
   				(pin input line
-  					(at -31.75 -12.7 90)
+  					(at -34.29 -12.7 90)
   					(length 2.54)
   					(name "PCIEB_RX1P"
   						(effects
@@ -5904,7 +6621,7 @@
   					)
   				)
   				(pin input line
-  					(at -29.21 -12.7 90)
+  					(at -31.75 -12.7 90)
   					(length 2.54)
   					(name "PCIEB_RX1N"
   						(effects
@@ -5922,7 +6639,7 @@
   					)
   				)
   				(pin input line
-  					(at -41.91 -12.7 90)
+  					(at -44.45 -12.7 90)
   					(length 2.54)
   					(name "PCIEB_RX0P"
   						(effects
@@ -5940,7 +6657,7 @@
   					)
   				)
   				(pin input line
-  					(at -39.37 -12.7 90)
+  					(at -41.91 -12.7 90)
   					(length 2.54)
   					(name "PCIEB_RX0N"
   						(effects
@@ -5958,7 +6675,7 @@
   					)
   				)
   				(pin bidirectional line
-  					(at -52.07 -12.7 90)
+  					(at -54.61 -12.7 90)
   					(length 2.54)
   					(name "PCIEB_REFCLK_P"
   						(effects
@@ -5976,7 +6693,7 @@
   					)
   				)
   				(pin bidirectional line
-  					(at -49.53 -12.7 90)
+  					(at -52.07 -12.7 90)
   					(length 2.54)
   					(name "PCIEB_REFCLK_N"
   						(effects
@@ -6025,7 +6742,7 @@
   					)
   				)
   			)
-  			(property "Footprint" "KeyV2_Footprints:KR_5R5V105_R"
+  			(property "Footprint" "KeyV2_Footprints:KR_5R5V105_SMD_DNI"
   				(at 0 0 0)
   				(show_name no)
   				(do_not_autoplace no)
@@ -6123,6 +6840,191 @@
   						)
   					)
   					(number "2"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  				)
+  			)
+  			(embedded_fonts no)
+  		)
+  (symbol "ForgeOS:TPS22919"
+  			(pin_names
+  				(offset 1.016)
+  			)
+  			(exclude_from_sim no)
+  			(in_bom yes)
+  			(on_board yes)
+  			(in_pos_files yes)
+  			(duplicate_pin_numbers_are_jumpers no)
+  			(property "Reference" "U?"
+  				(at 0 7.62 0)
+  				(show_name no)
+  				(do_not_autoplace no)
+  				(effects
+  					(font
+  						(size 1.27 1.27)
+  					)
+  				)
+  			)
+  			(property "Value" "TPS22919"
+  				(at 0 -7.62 0)
+  				(show_name no)
+  				(do_not_autoplace no)
+  				(effects
+  					(font
+  						(size 1.27 1.27)
+  					)
+  				)
+  			)
+  			(property "Footprint" "Package_TO_SOT_SMD:SOT-363_SC-70-6"
+  				(at 0 0 0)
+  				(show_name no)
+  				(do_not_autoplace no)
+  				(hide yes)
+  				(effects
+  					(font
+  						(size 1.27 1.27)
+  					)
+  				)
+  			)
+  			(property "Datasheet" ""
+  				(at 0 0 0)
+  				(show_name no)
+  				(do_not_autoplace no)
+  				(hide yes)
+  				(effects
+  					(font
+  						(size 1.27 1.27)
+  					)
+  				)
+  			)
+  			(property "Description" ""
+  				(at 0 0 0)
+  				(show_name no)
+  				(do_not_autoplace no)
+  				(hide yes)
+  				(effects
+  					(font
+  						(size 1.27 1.27)
+  					)
+  				)
+  			)
+  			(symbol "TPS22919_1_1"
+  				(rectangle
+  					(start -7.62 -5.08)
+  					(end 7.62 5.08)
+  					(stroke
+  						(width 0.254)
+  						(type default)
+  					)
+  					(fill
+  						(type background)
+  					)
+  				)
+  				(pin passive line
+  					(at -10.16 2.54 0)
+  					(length 2.54)
+  					(name "IN"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  					(number "1"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  				)
+  				(pin passive line
+  					(at -10.16 0 0)
+  					(length 2.54)
+  					(name "GND"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  					(number "2"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  				)
+  				(pin input line
+  					(at 10.16 2.54 180)
+  					(length 2.54)
+  					(name "ON"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  					(number "3"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  				)
+  				(pin no_connect line
+  					(at -10.16 -2.54 0)
+  					(length 2.54)
+  					(name "NC"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  					(number "4"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  				)
+  				(pin passive line
+  					(at 10.16 0 180)
+  					(length 2.54)
+  					(name "QOD"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  					(number "5"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  				)
+  				(pin power_out line
+  					(at 10.16 -2.54 180)
+  					(length 2.54)
+  					(name "VOUT"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  					(number "6"
   						(effects
   							(font
   								(size 1.27 1.27)
@@ -6658,7 +7560,7 @@
   			)
   			(embedded_fonts no)
   		)
-  (symbol "ForgeOS:USB_C_RECEPT_24"
+  (symbol "ForgeOS:USB_C_RECEPT_IND"
   			(pin_names
   				(offset 1.016)
   			)
@@ -6677,7 +7579,7 @@
   					)
   				)
   			)
-  			(property "Value" "USB_C_RECEPT_24"
+  			(property "Value" "USB_C_RECEPT_IND"
   				(at 0 -21.59 0)
   				(show_name no)
   				(do_not_autoplace no)
@@ -6687,7 +7589,7 @@
   					)
   				)
   			)
-  			(property "Footprint" "Connector_USB:USB_C_Receptacle_Molex_105450-0101"
+  			(property "Footprint" "Connector_USB:USB_C_Receptacle_Amphenol_12401610E4-2A"
   				(at 0 0 0)
   				(show_name no)
   				(do_not_autoplace no)
@@ -6720,10 +7622,10 @@
   					)
   				)
   			)
-  			(symbol "USB_C_RECEPT_24_1_1"
+  			(symbol "USB_C_RECEPT_IND_1_1"
   				(rectangle
-  					(start -6.35 -13.97)
-  					(end 6.35 13.97)
+  					(start -6.35 -15.24)
+  					(end 6.35 15.24)
   					(stroke
   						(width 0.254)
   						(type default)
@@ -6733,7 +7635,7 @@
   					)
   				)
   				(pin passive line
-  					(at 8.89 1.27 180)
+  					(at 8.89 2.54 180)
   					(length 2.54)
   					(name "GND"
   						(effects
@@ -6751,7 +7653,7 @@
   					)
   				)
   				(pin passive line
-  					(at 8.89 11.43 180)
+  					(at 8.89 12.7 180)
   					(length 2.54)
   					(name "VBUS"
   						(effects
@@ -6769,7 +7671,7 @@
   					)
   				)
   				(pin passive line
-  					(at 8.89 -8.89 180)
+  					(at 8.89 -10.16 180)
   					(length 2.54)
   					(name "CC1"
   						(effects
@@ -6787,7 +7689,7 @@
   					)
   				)
   				(pin passive line
-  					(at 8.89 8.89 180)
+  					(at 8.89 10.16 180)
   					(length 2.54)
   					(name "VBUS_2"
   						(effects
@@ -6805,7 +7707,7 @@
   					)
   				)
   				(pin passive line
-  					(at 8.89 -1.27 180)
+  					(at 8.89 0 180)
   					(length 2.54)
   					(name "GND_2"
   						(effects
@@ -6823,7 +7725,7 @@
   					)
   				)
   				(pin passive line
-  					(at 8.89 -3.81 180)
+  					(at 8.89 -2.54 180)
   					(length 2.54)
   					(name "GND_3"
   						(effects
@@ -6841,7 +7743,7 @@
   					)
   				)
   				(pin passive line
-  					(at 8.89 6.35 180)
+  					(at 8.89 7.62 180)
   					(length 2.54)
   					(name "VBUS_3"
   						(effects
@@ -6859,7 +7761,7 @@
   					)
   				)
   				(pin passive line
-  					(at 8.89 -11.43 180)
+  					(at 8.89 -12.7 180)
   					(length 2.54)
   					(name "CC2"
   						(effects
@@ -6877,7 +7779,7 @@
   					)
   				)
   				(pin passive line
-  					(at 8.89 3.81 180)
+  					(at 8.89 5.08 180)
   					(length 2.54)
   					(name "VBUS_4"
   						(effects
@@ -6895,7 +7797,7 @@
   					)
   				)
   				(pin passive line
-  					(at 8.89 -6.35 180)
+  					(at 8.89 -5.08 180)
   					(length 2.54)
   					(name "GND_4"
   						(effects
@@ -6912,8 +7814,26 @@
   						)
   					)
   				)
+  				(pin passive line
+  					(at 8.89 -7.62 180)
+  					(length 2.54)
+  					(name "SHIELD"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  					(number "SH"
+  						(effects
+  							(font
+  								(size 1.27 1.27)
+  							)
+  						)
+  					)
+  				)
   			)
-  			(symbol "USB_C_RECEPT_24_2_1"
+  			(symbol "USB_C_RECEPT_IND_2_1"
   				(rectangle
   					(start -6.35 -19.05)
   					(end 6.35 19.05)

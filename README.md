@@ -1,9 +1,25 @@
 # hw_ic_key — KEY Secure Key Vault (B1 Security Module)
 
+<p align="center">
+  <a href="docs/img/top.png"><img src="docs/img/top.png" width="49%" alt="KEY module — TOP view (annotated 3D render)"></a>
+  <a href="docs/img/bottom.png"><img src="docs/img/bottom.png" width="49%" alt="KEY module — BOTTOM view (annotated 3D render)"></a>
+</p>
+
+<p align="center"><em>Current hardware revision — 8-layer, 32.00 × 63.40 mm PCB (TOP / BOTTOM)</em></p>
+
 Open-source hardware — KiCad design files for the **KEY module**, the secure
 key vault that gates the IOCONVERT V2.0 conversion card family. It carries
 the hardware root of trust and issues the pre-authentication handshake before
 any data path is enabled.
+
+## Status
+
+| Item | Value |
+|---|---|
+| PCB | 8 layers, 32.00 × 63.40 mm |
+| Routing | 0 unrouted nets, DRC 0 violations |
+| Fabrication data | Gerber (13 layers), Excellon drill, CPL, BOM — `fab/release_r5_u0/` |
+| Design files | KiCad 10 (`key_v2.kicad_pro`, `key_v2.kicad_pcb`, `sch/`) |
 
 ## Overview
 
@@ -34,11 +50,14 @@ KEY (B1 security module)
 | Path | Description |
 |---|---|
 | `key_v2.kicad_pro` | KiCad 10 project |
-| `sch/` | Schematics: main, power |
+| `key_v2.kicad_pcb` | PCB layout (current revision) |
+| `sch/` | Schematics: root, main, power |
 | `lib/key_v2_symbols.kicad_sym` | Symbol library — required for schematics |
-| `lib/footprint/` | Footprint library (13 custom footprints) |
-| `fab/` | BOM (CSV) |
+| `lib/footprint/` | Footprint library (17 custom footprints) |
+| `fab/key_v2_bom.csv` | Bill of materials |
+| `fab/release_r5_u0/` | Fabrication package: Gerber, drill, CPL, BOM, `MANIFEST.md` |
 | `boards/` | Configuration (YAML) |
+| `docs/img/` | 3D renders used above |
 
 ## Getting Started
 
@@ -48,6 +67,12 @@ KEY (B1 security module)
 4. If symbols/footprints show as missing, add `lib/key_v2_symbols.kicad_sym`
    to the symbol library table and `lib/footprint/` to the footprint library
    table (global or project-level)
+
+## Fabrication
+
+`fab/release_r5_u0/MANIFEST.md` lists every file with its SHA-256 and size.
+Board stackup is 8-layer; blind/buried vias are used, so check with your
+fabricator before ordering.
 
 ## License
 
