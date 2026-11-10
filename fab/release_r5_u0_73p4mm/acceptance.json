@@ -1,0 +1,39 @@
+{
+ "board": "out/r5_u0_v1_final_20261110.kicad_pcb",
+ "board_sha256": "4ad679b8064b4ae505174c1d6a5d15cc32a3e507ddbfa3cf3c37d8326b3f808d",
+ "drc_sha256": "b3a518e7e3dcd455e4707dc3edc6864010f11248ef49512818661a035570ecd0",
+ "violations": 0,
+ "unconnected": 0,
+ "board_bbox_nominal_mm": [
+  32.0,
+  73.4
+ ],
+ "board_bbox_actual_mm": [
+  32.1,
+  73.5
+ ],
+ "layers": 8,
+ "fill_parity": {
+  "zones": 15,
+  "mismatch": 0
+ },
+ "verify_key_v2": "7/7 PASS",
+ "usb2_dp": {
+  "segments": 36,
+  "length_mm": 91.291,
+  "vias": 7,
+  "delta_vs_dm_mm": 4.5368
+ },
+ "pcie_tc_tx0_n_mm": 98.7043,
+ "refclk": {
+  "p_mm": 40.3098,
+  "n_mm": 40.3098,
+  "dl_mm": 1e-06
+ },
+ "emmc_dat0_mm": 53.4225,
+ "emmc_vs_r45_delta": 0,
+ "planes_single_component": true,
+ "connectivity_split_nets": 0,
+ "u2_first_article_gate": "continuous>1.5A or peak>2.5A/>2ms/>2% duty => TPS22965DSGR next rev",
+ "t5": "PWR_EN U2.3 via In5/In4 outside-plane vertical + In3 VDD_1V8 stitch; SBU_I2C_SCL/LX untouched"
+}

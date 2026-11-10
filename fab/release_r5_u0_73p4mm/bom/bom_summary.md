@@ -1,0 +1,52 @@
+# KEY v2 BOM 汇总
+
+> 生成: `key_v2/generate_bom.py` (数据源: kicadsexpr netlist)
+> 组件 118 | 料号 45 | 未注值 0 | 无封装 0
+
+| Ref | Qty | Value | Footprint |
+|---|---|---|---|
+| C1,C2,C3,C4,C5,C6,C7,C8,C9,C10,C12,C15,C17,C19,C21,C26,C27,C28,C31,C32,C33,C34,C35,C36,C37,C38 | 26 | 100nF | Capacitor_SMD:C_0402_1005Metric |
+| C11 | 1 | SUPERCAP_1F | KeyV2_Footprints:KR_5R5V105_SMD_DNI |
+| C13,C14,C16,C18,C20,C22,C29,C30 | 8 | 10uF | Capacitor_SMD:C_0402_1005Metric |
+| C23,C25 | 2 | 12pF | Capacitor_SMD:C_0402_1005Metric |
+| C24 | 1 | 1uF | Capacitor_SMD:C_0402_1005Metric |
+| C39 | 1 | 10nF | Capacitor_SMD:C_0201_0603Metric |
+| C40,C41,C42,C43 | 4 | 100nF | Capacitor_SMD:C_0201_0603Metric |
+| D1,D2,D3,D4,D5,D6,D7,D8,D9,D10,D11 | 11 | TVS | Diode_SMD:D_SOD-523 |
+| D12 | 1 | LED_DUAL | LED_SMD:LED_LiteOn_LTST-S326 |
+| D13 | 1 | BAT54C | Diode_SMD:D_SOT-23 |
+| J1 | 1 | USB_C_RECEPT_IND | Connector_USB:USB_C_Receptacle_Amphenol_12401610E4-2A |
+| J2 | 1 | M2_M_SOCKET_2230_ONLY | KeyV2_Footprints:M2_M_SOCKET_2230_ONLY |
+| J3 | 1 | UART_DEBUG | KeyV2_Footprints:PinHeader_1x03_P1.25mm_Vertical |
+| L1,L2,L3,L4,L5 | 5 | 1uH | Inductor_SMD:L_0805_2012Metric |
+| L6 | 1 | 4.7uH | Inductor_SMD:L_0805_2012Metric |
+| R1,R2 | 2 | 5.1K | Resistor_SMD:R_0402_1005Metric |
+| R3,R8,R10,R11,R15,R16,R17,R18,R20,R21,R22,R23,R26 | 13 | 10K | Resistor_SMD:R_0402_1005Metric |
+| R4,R19 | 2 | 100K | Resistor_SMD:R_0402_1005Metric |
+| R5,R6 | 2 | 4.7K | Resistor_SMD:R_0402_1005Metric |
+| R7 | 1 | 1M | Resistor_SMD:R_0402_1005Metric |
+| R9,R12 | 2 | 4.7K | Resistor_SMD:R_0201_0603Metric |
+| R13,R24,R25 | 3 | 100k | Resistor_SMD:R_0402_1005Metric |
+| R14 | 1 | 11k | Resistor_SMD:R_0402_1005Metric |
+| R27 | 1 | 1k | Resistor_SMD:R_0201_0603Metric |
+| R28,R29,R30,R32 | 4 | 100k | Resistor_SMD:R_0201_0603Metric |
+| R31 | 1 | 10k | Resistor_SMD:R_0201_0603Metric |
+| R33,R34 | 2 | 2.2K | Resistor_SMD:R_0201_0603Metric |
+| U1 | 1 | PMIC_P1 | Package_DFN_QFN:QFN-60-1EP_7x7mm_P0.4mm_EP3.4x3.4mm |
+| U2 | 1 | TPS22919 | Package_TO_SOT_SMD:SOT-363_SC-70-6 |
+| U3 | 1 | CLK_BUF_1TO2 | Package_SO:MSOP-10_3x3mm_P0.5mm |
+| U4 | 1 | SE050C2 | KeyV2_Footprints:HX2QFN20_3x3mm_P0.4mm |
+| U5 | 1 | EMMC_16G | KeyV2_Footprints:EMMC_BGA153 |
+| U6 | 1 | FUSB302 | KeyV2_Footprints:FUSB302 |
+| U7 | 1 | DCDC_12V_3V3 | Package_TO_SOT_SMD:SOT-23-6 |
+| U8,U14 | 2 | PI3DBS16412 | KeyV2_Footprints:PI3DBS16412 |
+| U9 | 1 | SN74LVC2T45 | Package_SO:VSSOP-8_2.3x2mm_P0.5mm |
+| U10 | 1 | LDO_5V_3V3 | Package_TO_SOT_SMD:SOT-23-5 |
+| U11 | 1 | SN74LVC1T45 | Package_TO_SOT_SMD:SOT-23-6 |
+| U12 | 1 | SOM_B1 | KeyV2_Footprints:B1_PsP_568 |
+| U13 | 1 | TS3USB221A | KeyV2_Footprints:TS3USB221A |
+| U15 | 1 | TLV7011 | Package_TO_SOT_SMD:SOT-353_SC-70-5 |
+| U16 | 1 | SN74LVC1G175 | Package_TO_SOT_SMD:SOT-363_SC-70-6 |
+| U17 | 1 | PCA9306 | Package_SO:VSSOP-8_2.3x2mm_P0.5mm |
+| Y1 | 1 | 24MHz_9pF | Crystal:Crystal_SMD_3225-4Pin_3.2x2.5mm |
+| Y2 | 1 | XO_100M | KeyV2_Footprints:XO_3225 |

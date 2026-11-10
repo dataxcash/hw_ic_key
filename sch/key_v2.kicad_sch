@@ -99,6 +99,49 @@
 			)
 		)
 	)
+	(sheet
+		(at 200 25)
+		(size 60 60)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.254)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "a0d48a38-39c6-592b-a57a-12fae664ff2c")
+		(property "Sheetname" "Power Gate"
+			(at 203 89 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sheetfile" "key_v2_gate.kicad_sch"
+			(at 203 21 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(instances
+			(project "key_v2"
+				(path "/a0d48a38-39c6-592b-a57a-12fae664ff2c"
+					(page "4")
+				)
+			)
+		)
+	)
 	(sheet_instances
 		(path "/"
 			(page "1")

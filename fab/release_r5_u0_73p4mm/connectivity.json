@@ -1,0 +1,888 @@
+{
+ "board": "out/r5_u0_v1_final_20261110.kicad_pcb",
+ "nets": {
+  "3V3_AUX": {
+   "pads": 22,
+   "components": [
+    22
+   ],
+   "missing": []
+  },
+  "AVDD06_DDR": {
+   "pads": 4,
+   "components": [
+    4
+   ],
+   "missing": []
+  },
+  "AVDD11_DDR": {
+   "pads": 4,
+   "components": [
+    4
+   ],
+   "missing": []
+  },
+  "CC1": {
+   "pads": 5,
+   "components": [
+    5
+   ],
+   "missing": []
+  },
+  "CC2": {
+   "pads": 5,
+   "components": [
+    5
+   ],
+   "missing": []
+  },
+  "D_P_SENSE": {
+   "pads": 3,
+   "components": [
+    3
+   ],
+   "missing": []
+  },
+  "EMMC_CLK": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "EMMC_CMD": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "EMMC_DAT0": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "EMMC_DAT1": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "EMMC_DAT2": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "EMMC_DAT3": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "EMMC_DAT4": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "EMMC_DAT5": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "EMMC_DAT6": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "EMMC_DAT7": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "EMMC_DS": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "EMMC_RST": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "EMMC_VDDI": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "FB_PREAUTH": {
+   "pads": 3,
+   "components": [
+    3
+   ],
+   "missing": []
+  },
+  "FUSB_INT#": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "GND": {
+   "pads": 129,
+   "components": [
+    126
+   ],
+   "missing": []
+  },
+  "I2C2_SCL": {
+   "pads": 5,
+   "components": [
+    5
+   ],
+   "missing": []
+  },
+  "I2C2_SCL_B1": {
+   "pads": 3,
+   "components": [
+    3
+   ],
+   "missing": []
+  },
+  "I2C2_SDA": {
+   "pads": 5,
+   "components": [
+    5
+   ],
+   "missing": []
+  },
+  "I2C2_SDA_B1": {
+   "pads": 3,
+   "components": [
+    3
+   ],
+   "missing": []
+  },
+  "I2C8_SCL": {
+   "pads": 3,
+   "components": [
+    3
+   ],
+   "missing": []
+  },
+  "I2C8_SDA": {
+   "pads": 3,
+   "components": [
+    3
+   ],
+   "missing": []
+  },
+  "JTAG_SEL": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "LX_BUCK12": {
+   "pads": 4,
+   "components": [
+    4
+   ],
+   "missing": []
+  },
+  "LX_BUCK3": {
+   "pads": 3,
+   "components": [
+    3
+   ],
+   "missing": []
+  },
+  "LX_BUCK4": {
+   "pads": 3,
+   "components": [
+    3
+   ],
+   "missing": []
+  },
+  "LX_BUCK5": {
+   "pads": 3,
+   "components": [
+    3
+   ],
+   "missing": []
+  },
+  "LX_BUCK6": {
+   "pads": 3,
+   "components": [
+    3
+   ],
+   "missing": []
+  },
+  "LX_PREAUTH": {
+   "pads": 3,
+   "components": [
+    3
+   ],
+   "missing": []
+  },
+  "M2_3V3": {
+   "pads": 11,
+   "components": [
+    11
+   ],
+   "missing": []
+  },
+  "M2_CLKREQ#": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "M2_DEVSLP": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "M2_PEDET": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "M2_RX0_N": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "M2_RX0_P": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "M2_RX1_N": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "M2_RX1_P": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "M2_TX0_N": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "M2_TX0_P": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "M2_TX1_N": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "M2_TX1_P": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "MUX_PD": {
+   "pads": 3,
+   "components": [
+    3
+   ],
+   "missing": []
+  },
+  "MUX_SEL": {
+   "pads": 3,
+   "components": [
+    3
+   ],
+   "missing": []
+  },
+  "ORI_PD": {
+   "pads": 3,
+   "components": [
+    3
+   ],
+   "missing": []
+  },
+  "ORI_PD_B1": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "ORI_SEL": {
+   "pads": 3,
+   "components": [
+    3
+   ],
+   "missing": []
+  },
+  "ORI_SEL_B1": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "PCIEC_RX0_N": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "PCIEC_RX0_P": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "PCIEC_RX1_N": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "PCIEC_RX1_P": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "PCIEC_TX0_N": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "PCIEC_TX0_P": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "PCIEC_TX1_N": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "PCIEC_TX1_P": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "PCIE_R0NB": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "PCIE_R0PB": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "PCIE_S1_RX0_N": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "PCIE_S1_RX0_P": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "PCIE_S1_RX1_N": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "PCIE_S1_RX1_P": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "PCIE_S1_TX0_N": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "PCIE_S1_TX0_P": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "PCIE_S1_TX1_N": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "PCIE_S1_TX1_P": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "PCIE_S2_RX0_N": {
+   "pads": 3,
+   "components": [
+    3
+   ],
+   "missing": []
+  },
+  "PCIE_S2_RX0_P": {
+   "pads": 3,
+   "components": [
+    3
+   ],
+   "missing": []
+  },
+  "PCIE_S2_RX1_N": {
+   "pads": 3,
+   "components": [
+    3
+   ],
+   "missing": []
+  },
+  "PCIE_S2_RX1_P": {
+   "pads": 3,
+   "components": [
+    3
+   ],
+   "missing": []
+  },
+  "PCIE_S2_TX0_N": {
+   "pads": 3,
+   "components": [
+    3
+   ],
+   "missing": []
+  },
+  "PCIE_S2_TX0_P": {
+   "pads": 3,
+   "components": [
+    3
+   ],
+   "missing": []
+  },
+  "PCIE_S2_TX1_N": {
+   "pads": 3,
+   "components": [
+    3
+   ],
+   "missing": []
+  },
+  "PCIE_S2_TX1_P": {
+   "pads": 3,
+   "components": [
+    3
+   ],
+   "missing": []
+  },
+  "PCIE_T0NB": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "PCIE_T0PB": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "PCIE_TC_RX0_N": {
+   "pads": 4,
+   "components": [
+    4
+   ],
+   "missing": []
+  },
+  "PCIE_TC_RX0_P": {
+   "pads": 4,
+   "components": [
+    4
+   ],
+   "missing": []
+  },
+  "PCIE_TC_RX1_N": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "PCIE_TC_RX1_P": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "PCIE_TC_TX0_N": {
+   "pads": 4,
+   "components": [
+    4
+   ],
+   "missing": []
+  },
+  "PCIE_TC_TX0_P": {
+   "pads": 4,
+   "components": [
+    4
+   ],
+   "missing": []
+  },
+  "PCIE_TC_TX1_N": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "PCIE_TC_TX1_P": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "PERST#_B1": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "PERST#_SSD": {
+   "pads": 3,
+   "components": [
+    3
+   ],
+   "missing": []
+  },
+  "PMIC_INT": {
+   "pads": 3,
+   "components": [
+    3
+   ],
+   "missing": []
+  },
+  "PMIC_SLEEP": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "PWR_5V_PREAUTH": {
+   "pads": 4,
+   "components": [
+    4
+   ],
+   "missing": []
+  },
+  "PWR_5V_WORK": {
+   "pads": 13,
+   "components": [
+    13
+   ],
+   "missing": []
+  },
+  "PWR_EN": {
+   "pads": 3,
+   "components": [
+    3
+   ],
+   "missing": []
+  },
+  "PWR_EN_CLK": {
+   "pads": 3,
+   "components": [
+    3
+   ],
+   "missing": []
+  },
+  "PWR_EN_CLR": {
+   "pads": 3,
+   "components": [
+    3
+   ],
+   "missing": []
+  },
+  "PWR_EN_REF": {
+   "pads": 4,
+   "components": [
+    4
+   ],
+   "missing": []
+  },
+  "PWR_EN_SET_N": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "REFCLK_100M_N": {
+   "pads": 3,
+   "components": [
+    3
+   ],
+   "missing": []
+  },
+  "REFCLK_100M_P": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "REFCLK_B1_N": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "REFCLK_B1_P": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "REFCLK_XO": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "REFCLK_XO_N": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "RESET": {
+   "pads": 3,
+   "components": [
+    3
+   ],
+   "missing": []
+  },
+  "SBU1_DET": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "SBU_EN": {
+   "pads": 3,
+   "components": [
+    3
+   ],
+   "missing": []
+  },
+  "SBU_I2C_SCL": {
+   "pads": 4,
+   "components": [
+    4
+   ],
+   "missing": []
+  },
+  "SBU_I2C_SDA": {
+   "pads": 4,
+   "components": [
+    4
+   ],
+   "missing": []
+  },
+  "SBU_SEL": {
+   "pads": 3,
+   "components": [
+    3
+   ],
+   "missing": []
+  },
+  "STATUS_LED": {
+   "pads": 3,
+   "components": [
+    3
+   ],
+   "missing": []
+  },
+  "STRAP2": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "STRAP3": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "STRAP4": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "UART0_RX": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "UART0_TX": {
+   "pads": 2,
+   "components": [
+    2
+   ],
+   "missing": []
+  },
+  "USB2_DM": {
+   "pads": 4,
+   "components": [
+    4
+   ],
+   "missing": []
+  },
+  "USB2_DP": {
+   "pads": 5,
+   "components": [
+    5
+   ],
+   "missing": []
+  },
+  "VBUS_IN": {
+   "pads": 11,
+   "components": [
+    11
+   ],
+   "missing": []
+  },
+  "VDD_0V9": {
+   "pads": 6,
+   "components": [
+    6
+   ],
+   "missing": []
+  },
+  "VDD_1V8": {
+   "pads": 24,
+   "components": [
+    24
+   ],
+   "missing": []
+  },
+  "VDD_3V3": {
+   "pads": 33,
+   "components": [
+    33
+   ],
+   "missing": []
+  },
+  "XTAL_24M_XI": {
+   "pads": 4,
+   "components": [
+    4
+   ],
+   "missing": []
+  },
+  "XTAL_24M_XO": {
+   "pads": 4,
+   "components": [
+    4
+   ],
+   "missing": []
+  }
+ },
+ "split_nets": {}
+}

@@ -3,6 +3,7 @@
   (lib (name "Resistor_SMD")(type "KiCad")(uri "/home/fila/jqdDev_2025/ic_hw/AppDir/usr/share/kicad/footprints/Resistor_SMD.pretty")(options "")(descr "Resistor_SMD"))
   (lib (name "Capacitor_SMD")(type "KiCad")(uri "/home/fila/jqdDev_2025/ic_hw/AppDir/usr/share/kicad/footprints/Capacitor_SMD.pretty")(options "")(descr "Capacitor_SMD"))
   (lib (name "Package_SO")(type "KiCad")(uri "/home/fila/jqdDev_2025/ic_hw/AppDir/usr/share/kicad/footprints/Package_SO.pretty")(options "")(descr "Package_SO"))
+  (lib (name "Package_SON")(type "KiCad")(uri "/home/fila/jqdDev_2025/ic_hw/AppDir/usr/share/kicad/footprints/Package_SON.pretty")(options "")(descr "Package_SON"))
   (lib (name "Package_TO_SOT_SMD")(type "KiCad")(uri "/home/fila/jqdDev_2025/ic_hw/AppDir/usr/share/kicad/footprints/Package_TO_SOT_SMD.pretty")(options "")(descr "Package_TO_SOT_SMD"))
   (lib (name "LED_SMD")(type "KiCad")(uri "/home/fila/jqdDev_2025/ic_hw/AppDir/usr/share/kicad/footprints/LED_SMD.pretty")(options "")(descr "LED_SMD"))
   (lib (name "Button_Switch_SMD")(type "KiCad")(uri "/home/fila/jqdDev_2025/ic_hw/AppDir/usr/share/kicad/footprints/Button_Switch_SMD.pretty")(options "")(descr "Button_Switch_SMD"))

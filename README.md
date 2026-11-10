@@ -1,11 +1,11 @@
 # hw_ic_key — KEY Secure Key Vault (B1 Security Module)
 
 <p align="center">
-  <a href="docs/img/top.png"><img src="docs/img/top.png" width="49%" alt="KEY module — TOP view (annotated 3D render)"></a>
-  <a href="docs/img/bottom.png"><img src="docs/img/bottom.png" width="49%" alt="KEY module — BOTTOM view (annotated 3D render)"></a>
+  <a href="docs/img/top.png"><img src="docs/img/top.png" width="49%" alt="KEY module — TOP view (3D render)"></a>
+  <a href="docs/img/bottom.png"><img src="docs/img/bottom.png" width="49%" alt="KEY module — BOTTOM view (3D render)"></a>
 </p>
 
-<p align="center"><em>Current hardware revision — 8-layer, 32.00 × 63.40 mm PCB (TOP / BOTTOM)</em></p>
+<p align="center"><em>Current hardware revision — 8-layer, 32.00 × 73.40 mm PCB (TOP / BOTTOM)</em></p>
 
 Open-source hardware — KiCad design files for the **KEY module**, the secure
 key vault that gates the IOCONVERT V2.0 conversion card family. It carries
@@ -16,10 +16,11 @@ any data path is enabled.
 
 | Item | Value |
 |---|---|
-| PCB | 8 layers, 32.00 × 63.40 mm |
-| Routing | 0 unrouted nets, DRC 0 violations |
-| Fabrication data | Gerber (13 layers), Excellon drill, CPL, BOM — `fab/release_r5_u0/` |
+| PCB | 8 layers, 32.00 × 73.40 mm |
+| Routing | 0 unrouted nets, DRC 0 violations (0 errors / 0 warnings, refilled) |
+| Fabrication data | Gerber (14 layers), Excellon drill, CPL, BOM — `fab/release_r5_u0_73p4mm/` |
 | Design files | KiCad 10 (`key_v2.kicad_pro`, `key_v2.kicad_pcb`, `sch/`) |
+| Release tag | `r5-u0-73p4mm-release-20261110` |
 
 ## Overview
 
@@ -51,11 +52,11 @@ KEY (B1 security module)
 |---|---|
 | `key_v2.kicad_pro` | KiCad 10 project |
 | `key_v2.kicad_pcb` | PCB layout (current revision) |
-| `sch/` | Schematics: root, main, power |
+| `sch/` | Schematics: root, main, power, gate |
 | `lib/key_v2_symbols.kicad_sym` | Symbol library — required for schematics |
 | `lib/footprint/` | Footprint library (17 custom footprints) |
 | `fab/key_v2_bom.csv` | Bill of materials |
-| `fab/release_r5_u0/` | Fabrication package: Gerber, drill, CPL, BOM, `MANIFEST.md` |
+| `fab/release_r5_u0_73p4mm/` | Fabrication package: Gerber, drill, CPL, BOM, `MANIFEST.md` |
 | `boards/` | Configuration (YAML) |
 | `docs/img/` | 3D renders used above |
 
@@ -70,7 +71,7 @@ KEY (B1 security module)
 
 ## Fabrication
 
-`fab/release_r5_u0/MANIFEST.md` lists every file with its SHA-256 and size.
+`fab/release_r5_u0_73p4mm/MANIFEST.md` lists every file with its SHA-256 and size.
 Board stackup is 8-layer; blind/buried vias are used, so check with your
 fabricator before ordering.
 

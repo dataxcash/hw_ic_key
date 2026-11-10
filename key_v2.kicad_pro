@@ -145,14 +145,14 @@
         "track_width": "error",
         "tracks_crossing": "error",
         "tuning_profile_track_geometries": "ignore",
-        "unconnected_items": "ignore",
+        "unconnected_items": "error",
         "unresolved_variable": "error",
         "via_dangling": "warning",
         "zones_intersect": "error"
       },
       "rules": {
         "allow_blind_buried_vias": false,
-        "allow_micro_vias": false,
+        "allow_micro_vias": true,
         "max_error": 0.005,
         "min_annular_width": 0.05,
         "min_clearance": 0.09,
@@ -337,7 +337,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "key_v2_8l.kicad_pro",
+    "filename": "r62.kicad_pro",
     "version": 3
   },
   "net_settings": {
@@ -355,6 +355,24 @@
         "priority": 2147483647,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.12,
+        "tuning_profile": "",
+        "via_diameter": 0.45,
+        "via_drill": 0.25,
+        "wire_width": 6
+      },
+      {
+        "bus_width": 12,
+        "clearance": 0.09,
+        "diff_pair_gap": 0.18,
+        "diff_pair_width": 0.14,
+        "line_style": 0,
+        "microvia_diameter": 0.0,
+        "microvia_drill": 0.0,
+        "name": "ESCAPE_009",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "priority": 1,
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "track_width": 0.09,
         "tuning_profile": "",
         "via_diameter": 0.45,
         "via_drill": 0.25,
@@ -383,7 +401,26 @@
       "version": 5
     },
     "net_colors": null,
-    "netclass_assignments": null,
+    "netclass_assignments": {
+      "PCIE_S2_TX0_N": [
+        "ESCAPE_009"
+      ],
+      "PCIE_S2_TX0_P": [
+        "ESCAPE_009"
+      ],
+      "PCIE_S2_TX1_P": [
+        "ESCAPE_009"
+      ],
+      "PCIE_TC_TX0_P": [
+        "ESCAPE_009"
+      ],
+      "PCIE_TC_TX1_N": [
+        "ESCAPE_009"
+      ],
+      "PCIE_TC_TX1_P": [
+        "ESCAPE_009"
+      ]
+    },
     "netclass_patterns": []
   },
   "pcbnew": {
@@ -466,8 +503,8 @@
     ]
   ],
   "text_variables": {
-    "STACKUP": "8L 1.0mm preliminary (final fab quote pending)",
-    "IMPEDANCE": "90R differential / 50R single-ended (preliminary)"
+    "IMPEDANCE": "90R differential / 50R single-ended (preliminary)",
+    "STACKUP": "8L 1.0mm preliminary (final fab quote pending)"
   },
   "tuning_profiles": {
     "meta": {

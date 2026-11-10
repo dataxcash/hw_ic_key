@@ -6,7 +6,7 @@
 	(paper "A2")
 	(title_block
 		(title "Power (P1 PMIC + B1 power tree)")
-		(date "2026-10-22")
+		(date "2026-11-09")
 		(rev "B1")
 		(company "ForgeOS")
 		(comment 1 "Designed by: ForgeOS HW")

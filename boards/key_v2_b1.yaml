@@ -475,7 +475,8 @@ symbols:
       - bottom
       - 4
   FUSB302:
-    description: USB-PD CC 控制器 (WQFN-14)。CC1/CC2 检测 + BMC PD, I2C 从机; VDM 载体 (OI#7)。VCONN 悬空 (KEY 为 UFP/Device, 不供线缆电源)
+    description: USB-PD CC 控制器 (WQFN-14)。CC1/CC2 检测 + BMC PD, I2C 从机; VDM 载体 (OI#7)。VCONN
+      悬空 (KEY 为 UFP/Device, 不供线缆电源)
     ref_prefix: U
     value: FUSB302
     footprint: KeyV2_Footprints:FUSB302
@@ -551,7 +552,8 @@ symbols:
       - PASSIVE
       - right
   TS3USB221A:
-    description: 'USB2 2:1 MUX 复用为 SBU↔SE050 I2C 隔离开关 (OI#4): 1D±=SBU 侧, D±=SE050 I2C2 总线侧, SEL/OE#=B1 GPIO'
+    description: 'USB2 2:1 MUX 复用为 SBU↔SE050 I2C 隔离开关 (OI#4): 1D±=SBU 侧, D±=SE050
+      I2C2 总线侧, SEL/OE#=B1 GPIO'
     ref_prefix: U
     value: TS3USB221A
     footprint: KeyV2_Footprints:TS3USB221A
@@ -669,7 +671,8 @@ symbols:
       - PASSIVE
       - left
   LDO_5V_3V3:
-    description: AP2127K LDO (SOT-23-5)。VBUS→3V3_AUX (预鉴权链中间轨, 供 TLV61046 与 SE050 核心)
+    description: AP2127K LDO (SOT-23-5)。VBUS→3V3_AUX (预鉴权链中间轨, 供 TLV61046 与 SE050
+      核心)
     ref_prefix: U
     value: LDO_5V_3V3
     footprint: Package_TO_SOT_SMD:SOT-23-5
@@ -700,7 +703,8 @@ symbols:
       - POWER_OUT
       - right
   BAT54C:
-    description: 'BAT54C 双二极管共阴极 (SOT-23)。TLV61046 升压输出整流: A1=SW 开关节点, K=公共阴极→PWR_5V_PREAUTH, A2 悬空'
+    description: 'BAT54C 双二极管共阴极 (SOT-23)。TLV61046 升压输出整流: A1=SW 开关节点, K=公共阴极→PWR_5V_PREAUTH,
+      A2 悬空'
     ref_prefix: D
     value: BAT54C
     footprint: Diode_SMD:D_SOT-23
@@ -1151,7 +1155,10 @@ symbols:
       - OUTPUT
       - right
   USB_C_PLUG:
-    description: 'TYPE C 公头 24-pin 逻辑分组映射: VBUS=A4/B4/A9/B9, GND=A1/B1/A12/B12, D_P=A6/B6, D_N=A7/B7, TX_P=A11+B11, TX_N=A10+B10, RX_P=A2+B2, RX_N=A3+B3, CC1=A5, CC2=B5, SBU1=A8, SBU2=B8. Device 侧 TX=SSRXp1/SSTXp2 组、RX=SSTXp1/SSRXp2 组 (USB-C 规范 UFP 接法, 双方向插入都通)'
+    description: 'TYPE C 公头 24-pin 逻辑分组映射: VBUS=A4/B4/A9/B9, GND=A1/B1/A12/B12, D_P=A6/B6,
+      D_N=A7/B7, TX_P=A11+B11, TX_N=A10+B10, RX_P=A2+B2, RX_N=A3+B3, CC1=A5, CC2=B5,
+      SBU1=A8, SBU2=B8. Device 侧 TX=SSRXp1/SSTXp2 组、RX=SSTXp1/SSRXp2 组 (USB-C 规范 UFP
+      接法, 双方向插入都通)'
     ref_prefix: J
     value: USB_C_PLUG
     footprint: Connector_USB:USB_C_Plug_Molex_105444
@@ -1497,7 +1504,8 @@ symbols:
       - PASSIVE
       - left
   PI3DBS16412:
-    description: PI3DBS16412 4-lane 2:1 翻转 MUX (42-TQFN)。A=公共口(M.2), B=Mode A(B1 PCIEC), C=Mode B(Type-C); SEL1=0→A↔B, SEL1=1→A↔C, PD=1→hi-Z。footprint FP-01 待补
+    description: PI3DBS16412 4-lane 2:1 翻转 MUX (42-TQFN)。A=公共口(M.2), B=Mode A(B1 PCIEC),
+      C=Mode B(Type-C); SEL1=0→A↔B, SEL1=1→A↔C, PD=1→hi-Z。footprint FP-01 待补
     ref_prefix: U
     value: PI3DBS16412
     footprint: KeyV2_Footprints:PI3DBS16412
@@ -1866,7 +1874,8 @@ symbols:
       - PASSIVE
       - right
   USB_C_RECEPT_IND:
-    description: Industrial USB Type-C receptacle 24-pin (Amphenol 12401610E4-2A), 4 SS pairs + SBU + CC
+    description: Industrial USB Type-C receptacle 24-pin (Amphenol 12401610E4-2A),
+      4 SS pairs + SBU + CC
     ref_prefix: J
     value: USB_C_RECEPT_IND
     footprint: Connector_USB:USB_C_Receptacle_Amphenol_12401610E4-2A
@@ -2097,7 +2106,7 @@ symbols:
     description: Dual-bit dual-supply level translator (1.8V A -> 3.3V B), VSSOP-8
     ref_prefix: U
     value: SN74LVC2T45
-    footprint: Package_SO:VSSOP-8_3x3mm_P0.65mm
+    footprint: Package_SO:VSSOP-8_2.3x2mm_P0.5mm
     pins:
       VCCA:
       - VCCA
@@ -2140,7 +2149,8 @@ symbols:
       - PASSIVE
       - right
   CLK_BUF_1TO2:
-    description: Generic 1:2 differential clock buffer placeholder (final part TBD), MSOP-10
+    description: Generic 1:2 differential clock buffer placeholder (final part TBD),
+      MSOP-10
     ref_prefix: U
     value: CLK_BUF_1TO2
     footprint: Package_SO:MSOP-10_3x3mm_P0.5mm
@@ -2195,6 +2205,151 @@ symbols:
       - 10
       - PASSIVE
       - right
+  TLV7011:
+    description: TI TLV7011 push-pull comparator, SC70-5, 1.6-5.5V, rail-to-rail input
+    ref_prefix: U
+    value: TLV7011
+    footprint: Package_TO_SOT_SMD:SOT-353_SC-70-5
+    pins:
+      IN+:
+      - IN+
+      - '3'
+      - INPUT
+      - left
+      IN-:
+      - IN-
+      - '4'
+      - INPUT
+      - left
+      V-:
+      - V-
+      - '2'
+      - PASSIVE
+      - left
+      OUT:
+      - OUT
+      - '1'
+      - OUTPUT
+      - right
+      V+:
+      - V+
+      - '5'
+      - PASSIVE
+      - right
+  SN74LVC1G175:
+    description: TI SN74LVC1G175 single D flip-flop, async clear, SC70-6
+    ref_prefix: U
+    value: SN74LVC1G175
+    footprint: Package_TO_SOT_SMD:SOT-363_SC-70-6
+    pins:
+      CLK:
+      - CLK
+      - '1'
+      - INPUT
+      - left
+      D:
+      - D
+      - '3'
+      - INPUT
+      - left
+      CLR#:
+      - CLR#
+      - '6'
+      - INPUT
+      - left
+      GND:
+      - GND
+      - '2'
+      - PASSIVE
+      - left
+      Q:
+      - Q
+      - '4'
+      - OUTPUT
+      - right
+      VCC:
+      - VCC
+      - '5'
+      - PASSIVE
+      - right
+  PCA9306:
+    description: TI PCA9306 2-bit bidirectional I2C level translator, VSSOP-8
+    ref_prefix: U
+    value: PCA9306
+    footprint: Package_SO:VSSOP-8_2.3x2mm_P0.5mm
+    pins:
+      VREF1:
+      - VREF1
+      - '2'
+      - PASSIVE
+      - left
+      SCL1:
+      - SCL1
+      - '3'
+      - BI
+      - left
+      SDA1:
+      - SDA1
+      - '4'
+      - BI
+      - left
+      GND:
+      - GND
+      - '1'
+      - PASSIVE
+      - left
+      SDA2:
+      - SDA2
+      - '5'
+      - BI
+      - right
+      SCL2:
+      - SCL2
+      - '6'
+      - BI
+      - right
+      VREF2:
+      - VREF2
+      - '7'
+      - PASSIVE
+      - right
+      EN:
+      - EN
+      - '8'
+      - INPUT
+      - right
+  RES_0201:
+    description: 0201 resistor (0.6x0.3mm)
+    ref_prefix: R
+    value: R
+    footprint: Resistor_SMD:R_0201_0603Metric
+    pins:
+      P1:
+      - P1
+      - 1
+      - PASSIVE
+      - left
+      P2:
+      - P2
+      - 2
+      - PASSIVE
+      - right
+  CAP_0201:
+    description: 0201 capacitor (0.6x0.3mm)
+    ref_prefix: C
+    value: C
+    footprint: Capacitor_SMD:C_0201_0603Metric
+    pins:
+      P1:
+      - P1
+      - 1
+      - PASSIVE
+      - left
+      P2:
+      - P2
+      - 2
+      - PASSIVE
+      - right
 nets:
   LX_BUCK12:
   - U1/BUCK1_LX
@@ -2229,12 +2384,14 @@ nets:
   - R4/P2
   - R5/P2
   - R6/P2
-  - R9/P2
-  - R12/P2
   - C15/P1
   - C16/P1
   - U11/VCCA
   - U9/VCCA
+  - U17/VREF1
+  - U17/EN
+  - R33/P2
+  - R34/P2
   LX_BUCK4:
   - U1/BUCK4_LX
   - L3/P1
@@ -2258,9 +2415,6 @@ nets:
   - U14/VDD_4
   - U14/VDD_5
   - U14/VDD_6
-  - U6/VDD
-  - U6/VDD_2
-  - U13/VCC
   - Y2/VCC
   - Y2/EN
   - U11/VCCB
@@ -2303,17 +2457,17 @@ nets:
   - U1/SDA
   - R6/P1
   I2C2_SCL:
-  - U12/AP_I2C2_SCL
   - U4/SCL
   - R9/P1
   - U6/SCL
   - U13/D_P
+  - U17/SCL2
   I2C2_SDA:
-  - U12/AP_I2C2_SDA
   - U4/SDA
   - R12/P1
   - U6/SDA
   - U13/D_N
+  - U17/SDA2
   PMIC_INT:
   - U1/nINT
   - U12/PMIC_INT_N
@@ -2379,6 +2533,7 @@ nets:
   - J1/D_P
   - J1/D_P_2
   - D11/A1
+  - R27/P1
   USB2_DM:
   - U12/USB0_DN
   - J1/D_N
@@ -2461,6 +2616,10 @@ nets:
   - J2/3V3_8
   - J2/3V3_9
   - R24/P2
+  - R26/P2
+  M2_CLKREQ#:
+  - J2/CLKREQ#
+  - R26/P1
   3V3_AUX:
   - U7/VIN
   - U10/VOUT
@@ -2469,6 +2628,21 @@ nets:
   - C30/P1
   - R17/P2
   - R18/P2
+  - U13/VCC
+  - U4/VIN
+  - U4/ENA
+  - U15/V+
+  - U16/VCC
+  - R29/P1
+  - R31/P1
+  - C42/P1
+  - C43/P1
+  - U16/D
+  - U6/VDD
+  - U6/VDD_2
+  - R9/P2
+  - R12/P2
+  - U17/VREF2
   LX_PREAUTH:
   - L6/P2
   - U7/SW
@@ -2476,8 +2650,6 @@ nets:
   PWR_5V_PREAUTH:
   - U7/VOUT
   - D13/K
-  - U4/VIN
-  - U4/ENA
   - C29/P1
   - R13/P2
   FB_PREAUTH:
@@ -2657,6 +2829,16 @@ nets:
   - D7/A2
   - D8/A2
   - J1/SHIELD
+  - U15/V-
+  - U16/GND
+  - R28/P2
+  - R30/P2
+  - C39/P2
+  - C40/P2
+  - C41/P2
+  - C42/P2
+  - C43/P2
+  - U17/GND
   VBUS_IN:
   - J1/VBUS
   - J1/VBUS_2
@@ -2685,8 +2867,8 @@ nets:
   - C11/POS
   PWR_EN:
   - U2/ON
-  - U4/AUTH_OK
   - R8/P1
+  - U16/Q
   ORI_SEL_B1:
   - U12/GPIO88
   - U9/A1
@@ -2823,6 +3005,34 @@ nets:
   - U14/PD1
   - U14/PD2
   - U12/GPIO73
+  D_P_SENSE:
+  - U15/IN+
+  - R27/P2
+  - R28/P1
+  PWR_EN_REF:
+  - U15/IN-
+  - R29/P2
+  - R30/P1
+  - C40/P1
+  PWR_EN_SET_N:
+  - U15/OUT
+  - R32/P1
+  PWR_EN_CLK:
+  - U16/CLK
+  - R32/P2
+  - C41/P1
+  PWR_EN_CLR:
+  - U16/CLR#
+  - R31/P2
+  - C39/P1
+  I2C2_SCL_B1:
+  - U12/AP_I2C2_SCL
+  - U17/SCL1
+  - R33/P1
+  I2C2_SDA_B1:
+  - U12/AP_I2C2_SDA
+  - U17/SDA1
+  - R34/P1
 nc:
 - - U1
   - ALDO1_OUT
@@ -2873,8 +3083,6 @@ nc:
 - - U14
   - NC_2
 - - J2
-  - CLKREQ#
-- - J2
   - PEWAKE#
 - - U2
   - NC
@@ -2884,6 +3092,8 @@ nc:
   - NC
 - - U8
   - NC_2
+- - U4
+  - AUTH_OK
 sheets:
   Power (P1 PMIC + B1 power tree):
     filename: key_v2_power.kicad_sch
@@ -3236,13 +3446,13 @@ sheets:
         rotation: 0
         value: 100K
       R9:
-        symbol: RES_0402
+        symbol: RES_0201
         x: 127.0
         y: 260
         rotation: 0
         value: 4.7K
       R12:
-        symbol: RES_0402
+        symbol: RES_0201
         x: 177.8
         y: 260
         rotation: 0
@@ -3276,7 +3486,6 @@ sheets:
         y: 60
         rotation: 0
         nc:
-        - CLKREQ#
         - PEWAKE#
       U14:
         symbol: PI3DBS16412
@@ -3393,6 +3602,12 @@ sheets:
         y: 330
         rotation: 0
         value: 100k
+      R26:
+        symbol: RES_0402
+        x: 380
+        y: 385
+        rotation: 0
+        value: 10K
       C30:
         symbol: CAP_0402
         x: 295
@@ -3488,3 +3703,109 @@ sheets:
         y: 125
         rotation: 0
         value: 10K
+  Power Gate:
+    filename: key_v2_gate.kicad_sch
+    size:
+    - 297.0
+    - 210.0
+    placements:
+      U15:
+        symbol: TLV7011
+        x: 50
+        y: 45
+        rotation: 0
+      U16:
+        symbol: SN74LVC1G175
+        x: 130
+        y: 45
+        rotation: 0
+      U17:
+        symbol: PCA9306
+        x: 220
+        y: 45
+        rotation: 0
+      R27:
+        symbol: RES_0201
+        x: 45
+        y: 95
+        rotation: 0
+        value: 1k
+      R28:
+        symbol: RES_0201
+        x: 45
+        y: 115
+        rotation: 0
+        value: 100k
+      R29:
+        symbol: RES_0201
+        x: 105
+        y: 95
+        rotation: 0
+        value: 100k
+      R30:
+        symbol: RES_0201
+        x: 105
+        y: 115
+        rotation: 0
+        value: 100k
+      R31:
+        symbol: RES_0201
+        x: 165
+        y: 95
+        rotation: 0
+        value: 10k
+      R32:
+        symbol: RES_0201
+        x: 165
+        y: 115
+        rotation: 0
+        value: 100k
+      R33:
+        symbol: RES_0201
+        x: 225
+        y: 95
+        rotation: 0
+        value: 2.2K
+      R34:
+        symbol: RES_0201
+        x: 225
+        y: 115
+        rotation: 0
+        value: 2.2K
+      C39:
+        symbol: CAP_0201
+        x: 45
+        y: 145
+        rotation: 0
+        value: 10nF
+      C40:
+        symbol: CAP_0201
+        x: 105
+        y: 145
+        rotation: 0
+        value: 100nF
+      C41:
+        symbol: CAP_0201
+        x: 165
+        y: 145
+        rotation: 0
+        value: 100nF
+      C42:
+        symbol: CAP_0201
+        x: 225
+        y: 145
+        rotation: 0
+        value: 100nF
+      C43:
+        symbol: CAP_0201
+        x: 225
+        y: 165
+        rotation: 0
+        value: 100nF
+dnp:
+- U7
+- L6
+- D13
+- R13
+- R14
+- C29
